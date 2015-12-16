@@ -1,0 +1,63 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Tutorials/com.python.pydev.analysis/v2_indexcache
+3_net|1449921377000000000|/home/danglab/workspace/Tutorials/src/3_net.py
+2_logistic_regression|1449919276000000000|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
+load|1449750369000000000|/home/danglab/workspace/Tutorials/src/load.py
+1_linear_regression|1449918300000000000|/home/danglab/workspace/Tutorials/src/1_linear_regression.py
+4_modern_net|1449992857000000000|/home/danglab/workspace/Tutorials/src/4_modern_net.py
+0_multiply|1449750325000000000|/home/danglab/workspace/Tutorials/src/0_multiply.py
+5_convolutional_net|1449917284000000000|/home/danglab/workspace/Tutorials/src/5_convolutional_net.py
+-- END DISKCACHE
+-- START DICTIONARY
+7
+5=2_logistic_regression
+3=3_net
+7=load
+4=1_linear_regression
+6=0_multiply
+2=4_modern_net
+1=5_convolutional_net
+-- END DICTIONARY
+-- START TREE 1
+36
+X|5|X!11@X!19@X!27@X!35@X!43@
+Y|5|Y!19@Y!27@Y!35@Y!43@Y!11@
+a|1|a!51@
+b|1|b!51@
+cos|5|cost!27@cost!43@cost!35@cost!19@cost!11@
+dat|1|datasets_dir!59@
+dro|2|dropout!10@dropout!18@
+flo|4|floatX!42@floatX!18@floatX!26@floatX!10@
+gra|2|gradient!43@gradient!35@
+ini|4|init_weights!42@init_weights!10@init_weights!26@init_weights!18@
+mni|1|mnist!58@
+mod|5|model!18@model!34@model!42@model!26@model!10@
+mul|1|multiply!51@
+one|1|one_hot!58@
+par|3|params!19@params!11@params!27@
+pre|4|predict!11@predict!27@predict!43@predict!19@
+py_|2|py_x!27@py_x!43@
+rec|2|rectify!18@rectify!10@
+rms|2|RMSprop!10@RMSprop!18@
+sgd|1|sgd!26@
+sof|2|softmax!10@softmax!18@
+srn|2|srng!19@srng!11@
+tex|1|teX!11@
+tra|5|train!35@train!27@train!43@train!19@train!11@
+trx|2|trX!11@trX!35@
+try|1|trY!35@
+upd|5|updates!35@updates!11@updates!19@update!43@updates!27@
+w|3|w!43@w!35@w!11@
+w2|1|w2!11@
+w3|1|w3!11@
+w4|1|w4!11@
+w_h|3|w_h!27@w_h2!19@w_h!19@
+w_o|3|w_o!27@w_o!11@w_o!19@
+y|2|y!51@y!35@
+y_p|1|y_pred!43@
+y_x|3|y_x!11@y_x!19@y_x!27@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

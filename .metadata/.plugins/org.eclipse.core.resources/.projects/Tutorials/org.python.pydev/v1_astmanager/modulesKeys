@@ -1,0 +1,8 @@
+MODULES_MANAGER_V2
+0_multiply|/home/danglab/workspace/Tutorials/src/0_multiply.py
+1_linear_regression|/home/danglab/workspace/Tutorials/src/1_linear_regression.py
+2_logistic_regression|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
+3_net|/home/danglab/workspace/Tutorials/src/3_net.py
+4_modern_net|/home/danglab/workspace/Tutorials/src/4_modern_net.py
+5_convolutional_net|/home/danglab/workspace/Tutorials/src/5_convolutional_net.py
+load|/home/danglab/workspace/Tutorials/src/load.py
