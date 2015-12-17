@@ -1,0 +1,17 @@
+import numpy
+from wave import Wave_read
+from scipy.io.wavfile import *
+
+file_wav_dir = "../Data/wav/"
+file_mat_dir = "../Data/mat/"
+filename = "usctimit_ema_f1_001_005"
+
+def readAudioFile(fileWav):
+    # http://stackoverflow.com/questions/2060628/how-to-read-wav-file-in-pythons
+    wav_file = Wave_read(file_wav_dir + fileWav + ".wav")
+    nframes =  wav_file.getnframes()    
+    sample_rate, wav_data = read(file_wav_dir + fileWav + ".wav")
+    
+    #plt.plot(wav_data)
+    #plt.show()
+    

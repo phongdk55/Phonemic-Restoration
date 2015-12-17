@@ -6,6 +6,7 @@ from scipy.io.wavfile import *
 import scipy.io as sio
 from features import * 
 from math import floor
+import matplotlib.pyplot as plt
 
 file_wav_dir = "../Data/wav/"
 file_mat_dir = "../Data/mat/"
@@ -16,13 +17,17 @@ def readAudioFile(fileWav):
     wav_file = Wave_read(file_wav_dir + fileWav + ".wav")
     nframes =  wav_file.getnframes()    
     sample_rate, wav_data = read(file_wav_dir + fileWav + ".wav")
-    mfcc_feat = mfcc(wav_data,sample_rate)
+    mfcc_feat = mfcc(wav_data,sample_rate)                  # need to define window length = ??, window step = ??
     #fbank_feat = logfbank(wav_data, sample_rate)
     #print fbank_feat[1:3,:]    
+    #plt.plot(mfcc_feat)
+    
     mfcc_feat =  np.transpose(mfcc_feat)
-    print mfcc_feat[0,:].shape
-    v1 = deltas_calc(mfcc_feat[0,:])
-    print v1
+    
+    #plt.plot(wav_data)
+    #plt.show()
+    
+    return mfcc_feat
     
 def deltas_calc(feature_data, w = 9):    #one dimension    # tu viet:P
     hlen = int(floor(w/2))
@@ -102,4 +107,4 @@ def audio_pre_processing():
     mfcc_feature = readAudioFile(filename)
     velocity_mfcc, acceleration_mfcc = get_velocity_acceleration(mfcc_feature)
     
-    
+audio_pre_processing()

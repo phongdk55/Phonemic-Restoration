@@ -1,0 +1,17 @@
+INSTUP2_logistic_regression
+/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&3|5|2|0&&3|6|2|0&&3|7|2|0&&3|8|2|0&&3|9|2|0&&3|10|2|0&&3|11|2|0&&3|12|2|0&&3|13|2|0&&3|14|2|0&&3|10|2|0
+update=12
+y_pred=9
+model=4
+floatX=1
+cost=10
+w=7
+py_x=8
+predict=14
+2_logistic_regression=2
+train=13
+Y=6
+X=5
+init_weights=3
+gradient=11

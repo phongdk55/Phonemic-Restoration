@@ -1,0 +1,19 @@
+import numpy
+from scipy.io.wavfile import *
+
+def readAudioFile(fileWav):
+    # http://stackoverflow.com/questions/2060628/how-to-read-wav-file-in-pythons
+    wav_file = Wave_read(file_wav_dir + fileWav + ".wav")
+    nframes =  wav_file.getnframes()    
+    sample_rate, wav_data = read(file_wav_dir + fileWav + ".wav")
+    mfcc_feat = mfcc(wav_data,sample_rate)                  # need to define window length = ??, window step = ??
+    #fbank_feat = logfbank(wav_data, sample_rate)
+    #print fbank_feat[1:3,:]    
+    #plt.plot(mfcc_feat)
+    
+    mfcc_feat =  np.transpose(mfcc_feat)
+    
+    #plt.plot(wav_data)
+    #plt.show()
+    
+    return mfcc_feat

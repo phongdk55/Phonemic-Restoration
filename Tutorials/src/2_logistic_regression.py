@@ -14,7 +14,6 @@ def model(X, w):
 
 trX, teX, trY, teY = mnist(onehot=True)
 
-print sum(sum(teX))
 X = T.fmatrix()
 Y = T.fmatrix()
 
