@@ -2,5 +2,7 @@ MODULES_MANAGER_V2
 AudioExtraction|/home/danglab/workspace/AudioProcessing/src/AudioExtraction.py
 AudioExtraction_2|/home/danglab/workspace/AudioProcessing/src/AudioExtraction_2.py
 Bias|/home/danglab/workspace/AudioProcessing/src/Bias.py
+Phonemic_DNN|/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN.py
 SpeechMissing|/home/danglab/workspace/AudioProcessing/src/SpeechMissing.py
 Test_theano|/home/danglab/workspace/AudioProcessing/src/Test_theano.py
+load_data_DNN|/home/danglab/workspace/AudioProcessing/src/load_data_DNN.py

@@ -1,0 +1,39 @@
+import numpy as np
+
+def load_input_data_1(filename):
+    input_file = open(filename,'r')
+    feature = []
+    features_arr = []
+    for line in input_file:
+        sequential_number = line.split(" ")
+        for num in sequential_number:
+            try:
+                feature.append(float(num))
+            except:
+                continue
+        #print len(feature) 
+        features_arr.append(feature)
+    
+    print len(features_arr)
+    a = np.array(features_arr)
+    print a.shape
+    
+def load_input_data(filename):
+    input_file = open(filename,'r')
+    feature = np.zeros((108))
+    features_arr = []
+    for line in input_file:
+        sequential_number = line.split(" ")
+        for i in xrange(0, len(sequential_number)):
+            try:
+                feature.(float(sequential_number[i]))
+            except:
+                continue
+        #print len(feature) 
+        features_arr.append(feature)
+    
+    print len(features_arr)
+    a = np.array(features_arr)
+    print a.shape
+filename = "/home/danglab/Features/Input/input.txt"
+load_input_data(filename)

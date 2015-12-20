@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;AudioProcessing/src/features.txt&apos;" deleteContents="false" description="Delete resource &apos;AudioProcessing/src/features.txt&apos;" element1="/AudioProcessing/src/features.txt" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1450590565330"/>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;AudioProcessing/src/features.txt&apos;" deleteContents="false" description="Delete resource &apos;AudioProcessing/src/features.txt&apos;" element1="/AudioProcessing/src/features.txt" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1450590565330"/>&#x0A;<refactoring comment="Delete resource &apos;AudioProcessing/src/load.py&apos;" deleteContents="false" description="Delete resource &apos;AudioProcessing/src/load.py&apos;" element1="/AudioProcessing/src/load.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1450595152262"/>
 </session>
