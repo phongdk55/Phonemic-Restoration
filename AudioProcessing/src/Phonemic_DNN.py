@@ -50,11 +50,13 @@ def model(X, w_h, w_h2, w_o, p_drop_input, p_drop_hidden):
     h2 = rectify(T.dot(h, w_h2))
 
     h2 = dropout(h2, p_drop_hidden)
-    py_x = softmax(T.dot(h2, w_o))
+    #py_x = softmax(T.dot(h2, w_o))
+    py_x = T.nnet.sigmoid(T.dot(h2, w_o))
+    
     return h, h2, py_x
 
 #trX, teX, trY, teY = mnist(onehot=True)
-trX, trY = load_data()
+trX, trY, factor_data = load_data()
 
 X = T.fmatrix()
 Y = T.fmatrix()
@@ -65,18 +67,22 @@ w_o = init_weights((625, 36))
 
 noise_h, noise_h2, noise_py_x = model(X, w_h, w_h2, w_o, 0.2, 0.5)
 h, h2, py_x = model(X, w_h, w_h2, w_o, 0., 0.)
-y_x = T.argmax(py_x, axis=1)
+#y_x = T.argmax(py_x, axis=1)
+y_x = py_x
 
 cost = T.mean(T.nnet.categorical_crossentropy(noise_py_x, Y))
 params = [w_h, w_h2, w_o]
 updates = RMSprop(cost, params, lr=0.001)
 
 train = theano.function(inputs=[X, Y], outputs=cost, updates=updates, allow_input_downcast=True)
-#predict = theano.function(inputs=[X], outputs=y_x, allow_input_downcast=True)
+predict = theano.function(inputs=[X], outputs=y_x, allow_input_downcast=True)
 
-for i in range(100):
+for i in range(200):
+    print i
     for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
-    #for u in  xrange(len(trX)):  
-        cost = train(trX[0:128], trY[0:128])
-    #print np.mean(np.argmax(teY, axis=1) == predict(teX))
+        cost = train(trX[start:end], trY[start:end])
+    if i == 199:
+        print trY[0][0:12]
+        print predict(trX)[0][0:12]
+    print np.mean(np.square(trY[:][0:12] - predict(trX)[0:12]))
 
