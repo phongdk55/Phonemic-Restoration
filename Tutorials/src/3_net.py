@@ -11,8 +11,8 @@ def floatX(X):
 def init_weights(shape):
     return theano.shared(floatX(np.random.randn(*shape) * 0.01))
 
-def sgd(cost, params, lr=0.05):
-    grads = T.grad(cost=cost, wrt=params)
+def sgd(cost, params, lr=0.05):             # generalize to compute gradient descent
+    grads = T.grad(cost=cost, wrt=params)   # on all model parameters
     updates = []
     for p, g in zip(params, grads):
         updates.append([p, p - g * lr])
@@ -40,7 +40,7 @@ updates = sgd(cost, params)
 train = theano.function(inputs=[X, Y], outputs=cost, updates=updates, allow_input_downcast=True)
 predict = theano.function(inputs=[X], outputs=y_x, allow_input_downcast=True)
 
-for i in range(100):
+for i in range(20):
     for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
         cost = train(trX[start:end], trY[start:end])
     print np.mean(np.argmax(teY, axis=1) == predict(teX))

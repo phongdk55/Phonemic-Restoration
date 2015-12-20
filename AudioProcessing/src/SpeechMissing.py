@@ -17,7 +17,6 @@ def remove_data(fileWav, gap):
     print wav_data.min(), wav_data.max()
     plt.plot(wav_data)
     plt.show()
-    
     start = 0
     #write("/home/danglab/Desktop/abc.wav", sample_rate, wav_data)
     

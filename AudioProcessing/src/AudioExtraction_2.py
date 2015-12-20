@@ -90,6 +90,11 @@ def convert_2_z_scores(raw_data):
     return z_scores_data
 
 
-readAudioFile(filename)
+#readAudioFile(filename)
 #readMatFile(filename)
 
+a = [1,2,3,4,6,11]
+b = [0,8,5,7,10,-1]
+print range(0, len(a),3)
+print range(3,len(a),3)
+print zip(range(0, len(a),3), range(3,len(a),3))

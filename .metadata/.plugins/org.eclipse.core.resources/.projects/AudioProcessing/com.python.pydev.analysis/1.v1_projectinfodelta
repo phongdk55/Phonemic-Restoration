@@ -1,9 +1,1 @@
-INSTUPSpeechMissing
-/home/danglab/workspace/AudioProcessing/src/SpeechMissing.py
-INFOS:&&3|1|2|0&&3|3|2|0&&3|4|2|0&&3|5|2|0&&2|6|2|0
-silence_gap=5
-file_mat_dir=3
-SpeechMissing=2
-filename=4
-file_wav_dir=1
-remove_data=6
+DELSTRAudioExtraction

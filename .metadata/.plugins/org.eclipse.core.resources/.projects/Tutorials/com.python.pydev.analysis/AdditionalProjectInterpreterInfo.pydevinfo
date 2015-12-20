@@ -1,11 +1,11 @@
 -- VERSION_4
 -- START DISKCACHE_2
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Tutorials/com.python.pydev.analysis/v2_indexcache
-3_net|1449921377000000000|/home/danglab/workspace/Tutorials/src/3_net.py
-2_logistic_regression|1449919276000000000|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
+3_net|1450336030000000000|/home/danglab/workspace/Tutorials/src/3_net.py
+2_logistic_regression|1450332803000000000|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
 load|1449750369000000000|/home/danglab/workspace/Tutorials/src/load.py
 1_linear_regression|1449918300000000000|/home/danglab/workspace/Tutorials/src/1_linear_regression.py
-4_modern_net|1449992857000000000|/home/danglab/workspace/Tutorials/src/4_modern_net.py
+4_modern_net|1450354510000000000|/home/danglab/workspace/Tutorials/src/4_modern_net.py
 0_multiply|1449750325000000000|/home/danglab/workspace/Tutorials/src/0_multiply.py
 5_convolutional_net|1449917284000000000|/home/danglab/workspace/Tutorials/src/5_convolutional_net.py
 -- END DISKCACHE

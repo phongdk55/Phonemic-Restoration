@@ -1,13 +1,26 @@
 -- VERSION_4
 -- START DISKCACHE_2
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Test/com.python.pydev.analysis/v2_indexcache
-Test|1449989701000000000|/home/danglab/workspace/Test/src/Test.py
+Test|1450331288000000000|/home/danglab/workspace/Test/src/Test.py
+classification|1450337375000000000|/home/danglab/workspace/Test/src/classification.py
 -- END DISKCACHE
 -- START DICTIONARY
-0
+2
+2=Test
+1=classification
 -- END DICTIONARY
 -- START TREE 1
-0
+10
+X|2|X!11@X!19@
+Y|2|Y!19@Y!11@
+cla|1|classify!10@
+flo|2|floatX!10@floatX!18@
+ini|2|init_weights!18@init_weights!10@
+lin|2|linear_2!18@linear!18@
+mod|2|model!10@model!18@
+qua|2|quadratic!18@quadratic_model!18@
+trx|2|trX!11@trX!19@
+try|2|trY!19@trY!11@
 -- END TREE
 -- START TREE 2
 0
