@@ -1,1 +1,1 @@
-INStheano.tensor.subtensor|/usr/local/lib/python2.7/dist-packages/theano/tensor/subtensor.py
+INStheano.tensor.nnet.ConvTransp3D|/usr/local/lib/python2.7/dist-packages/theano/tensor/nnet/ConvTransp3D.py

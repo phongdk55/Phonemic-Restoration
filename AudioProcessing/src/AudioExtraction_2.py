@@ -6,6 +6,8 @@ from scipy.io.wavfile import *
 import scipy.io as sio
 from features import * 
 from math import floor
+import matplotlib.pyplot as plt
+#from scikits.talkbox.features import mfcc
 
 file_wav_dir = "../Data/wav/"
 file_mat_dir = "../Data/mat/"
@@ -16,9 +18,15 @@ def readAudioFile(fileWav):
     wav_file = Wave_read(file_wav_dir + fileWav + ".wav")
     nframes =  wav_file.getnframes()    
     sample_rate, wav_data = read(file_wav_dir + fileWav + ".wav")
-    mfcc_feat = mfcc(wav_data,sample_rate)
+    mfcc_feat, mspec, spec = mfcc(wav_data,fs = sample_rate)
+    print mfcc_feat.shape
     #fbank_feat = logfbank(wav_data, sample_rate)
     #print fbank_feat[1:3,:]    
+    
+    plt.imshow(mfcc_feat.T,aspect='auto')
+    plt.colorbar()
+    plt.show()
+    
     mfcc_feat =  np.transpose(mfcc_feat)
     print mfcc_feat[0,:].shape
     v1 = deltas_calc(mfcc_feat[0,:])
@@ -34,7 +42,7 @@ def deltas_calc(feature_data, w = 9):    #one dimension    # tu viet:P
     for u in xrange(1, hlen+1):
         win[hlen - u] = -u
         win[hlen + u] = u
-    print 'win ', win
+    #print 'win ', win
     factor = hlen * (hlen + 1) * (2*hlen + 1) / 6  #sum of n^2
     
     print pad_data
@@ -90,11 +98,5 @@ def convert_2_z_scores(raw_data):
     return z_scores_data
 
 
-#readAudioFile(filename)
+readAudioFile(filename)
 #readMatFile(filename)
-
-a = [1,2,3,4,6,11]
-b = [0,8,5,7,10,-1]
-print range(0, len(a),3)
-print range(3,len(a),3)
-print zip(range(0, len(a),3), range(3,len(a),3))
