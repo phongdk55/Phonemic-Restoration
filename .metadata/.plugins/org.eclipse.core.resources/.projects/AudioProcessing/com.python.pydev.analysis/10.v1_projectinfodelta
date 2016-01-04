@@ -1,1 +1,5 @@
-DELSTRload_data_DNN
+INSTUPPhonemic_DNN_SGD
+/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_SGD.py
+INFOS:&&2|1|2|0
+sgd=1
+Phonemic_DNN_SGD=2

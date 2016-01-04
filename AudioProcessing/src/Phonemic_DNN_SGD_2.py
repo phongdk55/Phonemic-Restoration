@@ -82,14 +82,17 @@ def deep_neural_network():
     print trX.shape
     print trY.shape
     X = T.fmatrix()
-    Y = T.fmatrix()
+    Y = T.fmatrix()    
     
+    n_input_f = 109
     nNeural = 512
-    w_h = init_weights((108, nNeural))
+    n_output_f = 37
+    
+    w_h = init_weights((n_input_f - 1, nNeural))        # ko dung energy
     w_h1 = init_weights((nNeural, nNeural))
     w_h2 = init_weights((nNeural, nNeural))
     w_h3 = init_weights((nNeural, nNeural))
-    w_o = init_weights((nNeural, 36))
+    w_o = init_weights((nNeural, n_output_f - 1))       # ko dung energy
     
     py_x = model(X, w_h, w_h1,w_h2, w_h3, w_o)
     y_x = py_x
@@ -109,26 +112,6 @@ def deep_neural_network():
         #logging.debug('loop' + str(i))
         for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
             cost = train(trX[start:end], trY[start:end])      
-        
-        '''    
-            logging.debug('trX')
-            logging.debug(trX[start:end])
-            logging.debug('trY')
-            logging.debug(trY[start:end])
-            logging.debug('w_h')
-            logging.debug(w_h.get_value())
-            logging.debug('w_h1')
-            logging.debug(w_h1.get_value())
-            logging.debug('w_h2')
-            logging.debug(w_h2.get_value())
-            logging.debug('w_o')
-            logging.debug(w_o.get_value())
-            
-        '''
-    #     if i == 199:
-    #         print trY[len(trX)-1][0:12]
-    #         print predict(trX)[len(trX)-1][0:12]
-    #     print np.mean(np.square(trY[:][0:12] - predict(trX)[0:12]))
     
     feature_out_dir = '/home/danglab/Phong/norm/output_norm/'
     test_dir = '/home/danglab/Phong/TestData/Features_Norm/minus/3dB/'
@@ -141,18 +124,15 @@ def deep_neural_network():
     cnt = 0
     for afile in listtest:
         #print afile                 #usctimit_ema_f1_001_005_100ms_noise_in.txt
-        test_arr, factors = read_file_test(test_dir + afile, 109, "factors")                                #read a missing_feature
+        test_arr, factors = read_file_test(test_dir + afile, n_input_f, "factors")                                #read a missing_feature
         find_ = [m.start() for m in re.finditer('_', afile)]      
         file_mat = (afile.replace(afile[find_[4]:find_[6]],'')).replace('in.','out.')   #usctimit_ema_f1_001_005_out.txt
-        test_res_arr = read_file_test(feature_out_dir + file_mat, 13 + 24)              #read an original output feature
+        #test_res_arr = read_file_test(feature_out_dir + file_mat, n_output_f)              #read an original output feature
         energy = test_arr[:,0]          #ko cho energy vao DNN
-        test_arr = test_arr[:,1:109]
+        test_arr = test_arr[:,1:n_input_f]
         print factors
         write_predict_2_file(dnn_predict_dir + file_mat.replace("_out",''), energy, predict(test_arr), factors)      # write result to file
-        #print test_res_arr[0][0:13]
-        #print predict(test_arr)[0][0:13]
-        #print np.mean(np.square(test_res_arr[0:13] - predict(test_arr)[0:13]))
-        
+             
 def write_predict_2_file(filename, energy, res_arr, factors):
     files = open(filename, 'w')
     nframes = res_arr.shape[0]

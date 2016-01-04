@@ -1820,3 +1820,4 @@ build.matplotlib.setupext|/home/danglab/workspace/AudioProcessing/src/build/matp
 build.matplotlib.versioneer|/home/danglab/workspace/AudioProcessing/src/build/matplotlib/versioneer.py
 load_data_DNN|/home/danglab/workspace/AudioProcessing/src/load_data_DNN.py
 load_data_DNN_norm|/home/danglab/workspace/AudioProcessing/src/load_data_DNN_norm.py
+weight_matrix|/home/danglab/workspace/AudioProcessing/src/weight_matrix.py

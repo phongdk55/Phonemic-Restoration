@@ -46,8 +46,7 @@ output_arr = []
 #test_res_arr = []
 
 def read_afile(filename, num_features, arr ):
-    input_file = open(filename,'r')
-    
+    input_file = open(filename,'r')    
     for line in input_file:
         sequential_number = line.split(" ")
         feature = np.zeros((num_features))
@@ -76,26 +75,18 @@ def read_features():
     for afile in listfile:
         read_afile(feature_in_dir + afile,109 , input_arr)
         #print afile
-        #if count > 10:
-        #    break
-        #count += 1      
+        if count > 10:
+            break
+        count += 1      
               
     count = 0
     
     for afile in listfile_out:
         read_afile(feature_out_dir + afile, 13 + 24, output_arr)
-        #if count > 10:
-        #    break
-        #count += 1
-    '''   
-    listtest = sorted(os.listdir(test_dir))
-    for afile in listtest:
-        #print afile                 #usctimit_ema_f1_001_005_100ms_noise_in.txt
-        read_afile(test_dir + afile, 109, test_arr)
-        find_ = [m.start() for m in re.finditer('_', afile)]      
-        file_mat = (afile.replace(afile[find_[4]:find_[6]],'')).replace('in.','out.')   #usctimit_ema_f1_001_005_out.txt
-        read_afile(feature_out_dir + file_mat, 13 + 24, test_res_arr)
-    '''
+        if count > 10:
+            break
+        count += 1
+    
     return np.array(input_arr).astype(np.float32), np.array(output_arr).astype(np.float32)
 
 #load_data()

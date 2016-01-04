@@ -1,0 +1,74 @@
+import numpy as np
+
+def save_weight_info(filename, nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params):
+    #filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"  
+    weight_file = open(filename,'w')
+    weight_file.write("%s %s %s %s %s\n" %(nloop, n_hidden_layer,  n_input_f - 1, n_hidden_f, n_output_f - 1))
+    for w in params:
+        a_matrix = w.get_value()
+        [m,n] = a_matrix.shape
+        for i in xrange(m):
+            for j in xrange(n):
+                weight_file.write("%s " %(a_matrix[i,j]))
+            weight_file.write("\n")
+    weight_file.close()
+    
+def load_weight_info(filename):
+    #filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
+    weight_file = open(filename,'r')
+    cnt = 0
+    for line in weight_file:
+        print line
+        sequential_number = line.split()
+        nloop = int(sequential_number[0])
+        n_hidden_layer = int(sequential_number[1])
+        n_input_f = int(sequential_number[2]) 
+        n_hidden_f = int(sequential_number[3])
+        n_output_f = int(sequential_number[4])
+        break
+    weight_matrix = np.zeros((n_input_f + n_hidden_layer * n_hidden_f , max(n_input_f, n_hidden_f, n_output_f)))
+    #print weight_matrix.shape
+    
+    cnt = 0
+    for line in weight_file:
+        #print line
+        sequential_number = line.split()
+        for u in xrange(len(sequential_number)):
+            try:
+                weight_matrix[cnt, u] = float(sequential_number[u])
+            except:
+                continue
+        cnt+=1
+    '''   
+    print weight_matrix[weight_matrix.shape[0]-1]
+    w_h = weight_matrix[0:n_input_f, 0:n_hidden_f]
+    w_h1 = weight_matrix[n_input_f : n_input_f + n_hidden_f , 0:n_hidden_f]
+    w_h2 = weight_matrix[n_input_f + n_hidden_f : n_input_f  + 2 * n_hidden_f, 0:n_hidden_f]
+    w_h3 = weight_matrix[n_input_f  + 2 * n_hidden_f : n_input_f  + 3 * n_hidden_f, 0:n_hidden_f]
+    w_o = weight_matrix[n_input_f  + 3 * n_hidden_f : n_input_f  + 4 * n_hidden_f, 0:n_output_f]
+    return nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, w_h, w_h1, w_h2, w_h3, w_o
+    '''
+    w_h = weight_matrix[0:n_input_f, 0:n_hidden_f]      # input layer
+    #print 0,n_input_f
+    params = [w_h]
+    for u in xrange(n_hidden_layer -1 ):
+        w = weight_matrix[n_input_f + u * n_hidden_f: n_input_f + (u+1) * n_hidden_f, 0: n_hidden_f]
+        #print n_input_f + u * n_hidden_f, n_input_f + (u+1) * n_hidden_f
+        params.append(w)
+    w_o = weight_matrix[n_input_f + (n_hidden_layer-1) * n_hidden_f: n_input_f + n_hidden_layer * n_hidden_f, 0: n_output_f ]
+    #print n_input_f + (n_hidden_layer-1) * n_hidden_f, n_input_f + n_hidden_layer * n_hidden_f
+    #print w_o[w_o.shape[0]-1]
+    params.append(w_o)
+    return nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params
+
+def load_initial_info():
+    n_hidden_layer = 4
+    n_input_f = 109
+    n_hidden_f = 51    
+    n_output_f = 37
+    
+    w_h = init_weights((n_input_f - 1, n_hidden_f))        # ko dung energy
+    w_h1 = init_weights((n_hidden_f, n_hidden_f))
+    w_h2 = init_weights((n_hidden_f, n_hidden_f))
+    w_h3 = init_weights((n_hidden_f, n_hidden_f))
+    w_o = init_weights((n_hidden_f, n_output_f - 1))       # ko dung energy

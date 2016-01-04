@@ -1,1 +1,9 @@
-DELSTRPhonemic_DNN_SGD
+INSTUPPhonemic_DNN_SGD
+/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_SGD.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0
+model=3
+read_file_test=4
+write_predict_2_file=6
+deep_neural_network=5
+sgd=1
+Phonemic_DNN_SGD=2

@@ -1,1 +1,9 @@
-DELSTRload_data_DNN
+INSTUPweight_matrix
+/home/danglab/workspace/AudioProcessing/src/weight_matrix.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0
+share_weights=6
+load_weight_info=3
+load_initial_info=4
+save_weight_info=1
+floatX=5
+weight_matrix=2

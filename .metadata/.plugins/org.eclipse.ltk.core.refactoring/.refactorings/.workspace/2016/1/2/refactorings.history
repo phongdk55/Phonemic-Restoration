@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;AudioProcessing/src/weight_DNN&apos;" deleteContents="false" description="Delete resource &apos;AudioProcessing/src/weight_DNN&apos;" element1="/AudioProcessing/src/weight_DNN" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1451877018694"/>
+</session>

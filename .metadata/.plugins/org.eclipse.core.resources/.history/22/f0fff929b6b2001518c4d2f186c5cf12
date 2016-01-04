@@ -1,0 +1,186 @@
+import theano
+from theano import tensor as T
+import numpy as np
+from load_data_DNN import load_data, read_features
+import math
+import os,re
+import logging
+
+def floatX(X):
+    return np.asarray(X, dtype=theano.config.floatX)
+
+def init_weights(shape):
+    return theano.shared(floatX(np.random.randn(*shape) * 0.01))
+
+def sgd(cost, params, lr=0.15):             # generalize to compute gradient descent
+    grads = T.grad(cost=cost, wrt=params)   # on all model parameters
+    updates = []
+    for p, g in zip(params, grads):
+        updates.append([p, p - g * lr])
+    return updates
+'''
+def model(X, w_h, w_o):         # 2 layers of computation 
+    h = T.nnet.sigmoid(T.dot(X, w_h))       # input -> hidden(signmoid)
+    #pyx = T.nnet.softmax(T.dot(h, w_o))     # hidden -> output(softmax)
+    pyx = T.nnet.sigmoid(T.dot(h, w_o))     # hidden -> output(softmax)
+    return pyx
+'''
+def model(X, w_h, w_h1, w_h2, w_h3, w_o):         # 2 layers of computation 
+    
+    #h = T.nnet.sigmoid(T.dot(X, w_h))       # input -> hidden(signmoid)
+    #h1 = T.nnet.sigmoid(T.dot(h, w_h1))       # hidden -> hidden(signmoid)
+    #h2 = T.nnet.sigmoid(T.dot(h1, w_h2))       # hidden -> hidden(signmoid)
+    #pyx = T.nnet.softmax(T.dot(h, w_o))     # hidden -> output(softmax)
+    #pyx = T.nnet.sigmoid(T.dot(h2, w_o))     # hidden -> output(softmax)
+    
+    h = T.tanh(T.dot(X, w_h))       # input -> hidden(tanh)
+    h1 = T.tanh(T.dot(h, w_h1))       # hidden -> hidden(tanh)
+    h2 = T.tanh(T.dot(h1, w_h2))       # hidden -> hidden(tanh)
+    h3 = T.tanh(T.dot(h2, w_h3))
+    #pyx = T.nnet.softmax(T.dot(h, w_o))     # hidden -> output(softmax)
+    #pyx = T.tanh(T.dot(h2, w_o))     # hidden -> output(softmax)
+    pyx = T.dot(h3, w_o)     # hidden -> output
+    return pyx
+
+def read_file_test(filename, num_features):
+    input_file = open(filename,'r')
+    feature = np.zeros((num_features))
+    arr = []
+    for line in input_file:
+        sequential_number = line.split(" ")
+        #print sequential_number 
+        feature = np.zeros((num_features))
+        for i in xrange(num_features):
+            try:
+                feature[i] = (float(sequential_number[i]))
+            except:
+                continue
+        arr.append(feature)
+    return np.array(arr).astype(np.float32)
+
+def deep_neural_network():
+    trX, trY = read_features()
+    trX = trX[:,1:109]
+    trY = trY[:,1:37]
+    print trX.shape
+    print trY.shape
+    X = T.fmatrix()
+    Y = T.fmatrix()    
+    
+    n_hidden_layer = 4
+    n_input_f = 109
+    n_hidden_f = 51    
+    n_output_f = 37
+    
+    w_h = init_weights((n_input_f - 1, n_hidden_f))        # ko dung energy
+    w_h1 = init_weights((n_hidden_f, n_hidden_f))
+    w_h2 = init_weights((n_hidden_f, n_hidden_f))
+    w_h3 = init_weights((n_hidden_f, n_hidden_f))
+    w_o = init_weights((n_hidden_f, n_output_f - 1))       # ko dung energy
+    
+    py_x = model(X, w_h, w_h1,w_h2, w_h3, w_o)
+    y_x = py_x
+    
+    #cost = T.mean(T.nnet.categorical_crossentropy(py_x, Y))
+    cost = T.mean(T.sqr(py_x - Y))
+    params = [w_h, w_h1, w_h2, w_h3, w_o]
+    updates = sgd(cost, params)
+    train = theano.function(inputs=[X, Y], outputs=cost, updates=updates, allow_input_downcast=True)
+    predict = theano.function(inputs=[X], outputs=y_x, allow_input_downcast=True)
+    
+    LOG_FILENAME = 'DNN.log'
+    logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
+    id_file = 0
+    for i in range(10):
+        print i
+        #logging.debug('loop' + str(i))
+        for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
+            cost = train(trX[start:end], trY[start:end])      
+        save_weight_info( i, n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params, id_file)
+        id_file = 1 - id_file
+    feature_out_dir = '/home/danglab/Phong/norm/output_norm/'
+    test_dir = '/home/danglab/Phong/TestData/Features_Norm/minus/3dB/'
+    dnn_predict_dir = '/home/danglab/DNN_Predict/norm/noenergy/minus/3dB/'
+    
+    if not os.path.exists(dnn_predict_dir):
+        os.makedirs(dnn_predict_dir)
+        
+    listtest = sorted(os.listdir(test_dir))
+    cnt = 0
+    for afile in listtest:
+        #print afile                 #usctimit_ema_f1_001_005_100ms_noise_in.txt
+        test_arr, factors = read_file_test(test_dir + afile, n_input_f, "factors")                                #read a missing_feature
+        find_ = [m.start() for m in re.finditer('_', afile)]      
+        file_mat = (afile.replace(afile[find_[4]:find_[6]],'')).replace('in.','out.')   #usctimit_ema_f1_001_005_out.txt
+        #test_res_arr = read_file_test(feature_out_dir + file_mat, n_output_f)              #read an original output feature
+        energy = test_arr[:,0]          #ko cho energy vao DNN
+        test_arr = test_arr[:,1:n_input_f]
+        print factors
+        write_predict_2_file(dnn_predict_dir + file_mat.replace("_out",''), energy, predict(test_arr), factors)      # write result to file
+             
+def write_predict_2_file(filename, energy, res_arr, factors):
+    files = open(filename, 'w')
+    nframes = res_arr.shape[0]
+    for i in xrange(nframes):
+        files.write("%s "%(energy[i] * factors))        # restore energy
+        for j in xrange(12):  #13
+            files.write("%s " %(res_arr[i][j] * factors))
+        files.write("\n")
+    files.close()
+
+def save_weight_info(nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params, id_file):
+    filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"  
+    weight_file = open(filename,'w')
+    weight_file.write("%s %s %s %s %s\n" %(nloop, n_hidden_layer,  n_input_f - 1, n_hidden_f, n_output_f - 1))
+    for w in params:
+        a_matrix = w.get_value()
+        [m,n] = a_matrix.shape
+        for i in xrange(m):
+            for j in xrange(n):
+                weight_file.write("%s " %(a_matrix[i,j]))
+            weight_file.write("\n")
+    weight_file.close()
+    
+def load_weight_info(id_file):
+    filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
+    weight_file = open(filename,'r')
+    cnt = 0
+    for line in weight_file:
+        print line
+        sequential_number = line.split()
+        nloop = float(sequential_number[0])
+        n_hidden_layer = float(sequential_number[1])
+        n_input_f = float(sequential_number[2]) 
+        n_hidden_f = float(sequential_number[3])
+        n_output_f = float(sequential_number[4])
+        break
+    weight_matrix = np.zeros((n_input_f + n_hidden_layer * n_hidden_f , max(n_input_f, n_hidden_f, n_output_f)))
+    print weight_matrix.shape
+    
+    cnt = 0
+    for line in weight_file:
+        #print line
+        sequential_number = line.split()
+        for u in xrange(len(sequential_number)):
+            try:
+                weight_matrix[cnt, u] = float(sequential_number[u])
+            except:
+                continue
+        cnt+=1
+        
+    print weight_matrix[weight_matrix.shape[0]-1]
+    w_h = weight_matrix[0:n_input_f, 0:n_hidden_f]
+    w_h1 = weight_matrix[n_input_f : n_input_f + n_hidden_f , 0:n_hidden_f]
+    w_h2 = weight_matrix[n_input_f + n_hidden_f : n_input_f  + 2 * n_hidden_f, 0:n_hidden_f]
+    w_h3 = weight_matrix[n_input_f  + 2 * n_hidden_f : n_input_f  + 3 * n_hidden_f, 0:n_hidden_f]
+    w_o = weight_matrix[n_input_f  + 3 * n_hidden_f : n_input_f  + 4 * n_hidden_f, 0:n_output_f]
+    return nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, w_h, w_h1, w_h2, w_h3, w_o
+    
+    w_h = weight_matrix[0:n_input_f, 0:n_hidden_f]      # input layer
+    params = [w_h]
+    for u in xrange(n_hidden_layer):
+        w = weight_matrix[n_input_f: n_input_f + (u+1) * n_hidden_f, 0: n_hidden_f ]
+        params.append(w)
+    w_o = 
+load_weight_info(0)
+#deep_neural_network()
