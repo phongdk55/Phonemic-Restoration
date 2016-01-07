@@ -1,7 +1,7 @@
 import theano
 from theano import tensor as T
 import numpy as np
-from load_data_DNN import load_data, read_features
+from load_data_DNN_norm import load_data, read_features
 import math
 import os,re
 import logging
@@ -14,9 +14,9 @@ def sgd(cost, params, lr=0.15):             # generalize to compute gradient des
         updates.append([p, p - g * lr])
     return updates
 
-def model(X, params):         # 2 layers of computation 
+def model(X, params):         
     for u in xrange(len(params) - 1):
-        h = T.tanh(T.dot(X, params[u]))
+        h = T.tanh(T.dot(X, params[u]))     # use tanh function
         X = h
     pyx = T.dot(X, params[len(params) - 1])     # hidden -> output
     return pyx
@@ -56,24 +56,35 @@ def read_file_test(filename, num_features, *args):
 
 def deep_neural_network():
     trX, trY = read_features()
-    trX = trX[:,1:109]
-    trY = trY[:,1:37]
-    print trX.shape
-    print trY.shape
+    
     X = T.fmatrix()
     Y = T.fmatrix()    
     load_params = True
+    artic = 'artic/'
+    id_file = 0
+    weight_folder = '../weight_DNN/' + artic
     
-    id_file = 1
-    filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
+    if not os.path.exists(weight_folder):
+        os.makedirs(weight_folder)
+        
+    filename = weight_folder + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
+    
     if load_params:
-        nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params = load_weight_info(filename)
+        nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params = load_weight_info(filename)             
     else:
-        nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params = load_initial_info()     
-    print nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f
-    for u in xrange(len(params)):
-        a = params[u].get_value()
-        print a.shape,
+        nloop = 0
+        n_hidden_layer = 4 
+        n_input_f = 109
+        n_hidden_f = 512 
+        n_output_f = 37
+        params = load_initial_info(n_hidden_layer, n_input_f, n_hidden_f, n_output_f)    
+        
+    trX = trX[:,1:n_input_f]
+    trY = trY[:,1:n_output_f]
+    print trX.shape
+    print trY.shape   
+    #print nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f
+    
     py_x = model(X, params)
     y_x = py_x
     #cost = T.mean(T.nnet.categorical_crossentropy(py_x, Y))
@@ -86,18 +97,18 @@ def deep_neural_network():
     LOG_FILENAME = 'DNN.log'
     logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
           
-    for i in range(nloop, nloop + 10):
+    for i in range(nloop, nloop + 0):
         print i
         #logging.debug('loop' + str(i))
         for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
             cost = train(trX[start:end], trY[start:end])      
         save_weight_info( filename, i, n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params)
         id_file = 1 - id_file
-        filename = "../weight_DNN/" + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
+        filename = weight_folder + 'Phonemic_DNN_SGD_id_' + str(id_file) + ".txt"
        
     feature_out_dir = '/home/danglab/Phong/norm/output_norm/'
-    test_dir = '/home/danglab/Phong/TestData/Features_Norm/minus/3dB/'
-    dnn_predict_dir = '/home/danglab/DNN_Predict/norm/noenergy/minus/3dB/'
+    test_dir = '/home/danglab/Phong/TestData/Features_Norm/minus/6dB/'
+    dnn_predict_dir = '/home/danglab/DNN_Predict/norm/' + artic + 'minus/6dB/'
     
     if not os.path.exists(dnn_predict_dir):
         os.makedirs(dnn_predict_dir)
@@ -113,7 +124,7 @@ def deep_neural_network():
         energy = test_arr[:,0]          #ko cho energy vao DNN
         test_arr = test_arr[:,1:n_input_f]
         print factors
-        write_predict_2_file(dnn_predict_dir + file_mat.replace("_out",''), energy, predict(test_arr), factors)      # write result to file
+        write_predict_2_file(dnn_predict_dir + afile.replace(afile[find_[5]:find_[6]],'').replace("_out",''), energy, predict(test_arr), factors)      # write result to file
              
 def write_predict_2_file(filename, energy, res_arr, factors):
     files = open(filename, 'w')

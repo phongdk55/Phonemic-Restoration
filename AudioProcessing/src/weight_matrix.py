@@ -24,11 +24,11 @@ def load_weight_info(filename):
         n_input_f = int(sequential_number[2]) 
         n_hidden_f = int(sequential_number[3])
         n_output_f = int(sequential_number[4])
-        break
+        break                                           # khi break thi dong 1 trong file da duoc doc, lan for sau thi doc tu dong thu 2
     weight_matrix = np.zeros((n_input_f + n_hidden_layer * n_hidden_f , max(n_input_f, n_hidden_f, n_output_f)))
     
     cnt = 0
-    for line in weight_file:
+    for line in weight_file:                #load all weight matrices into an array, after that devide it into smaller array
         #print line
         sequential_number = line.split()
         for u in xrange(len(sequential_number)):
@@ -51,22 +51,17 @@ def load_weight_info(filename):
     params.append(w_o)
     return nloop,n_hidden_layer, n_input_f + 1, n_hidden_f, n_output_f + 1, params
 
-def load_initial_info():
-    nloop = 0
-    n_hidden_layer = 4
-    n_input_f = 109
-    n_hidden_f = 51    
-    n_output_f = 37
-    
+def load_initial_info(n_hidden_layer, n_input_f, n_hidden_f, n_output_f):
+        
     #np.random.randn(*shape) * 0.01
-    w_h = share_weights(np.random.randn(*(n_input_f - 1, n_hidden_f)) * 0.01 )      # ko dung energy
+    w_h = share_weights(np.random.randn(*(n_input_f - 1, n_hidden_f)) * 0.01 )      # weight matrix input -> hidden layer - not use energy 
     params = [w_h]
     for u in xrange(n_hidden_layer -1 ):
-        w = share_weights(np.random.randn(*(n_hidden_f, n_hidden_f)) * 0.01)
+        w = share_weights(np.random.randn(*(n_hidden_f, n_hidden_f)) * 0.01)        # weight matrix hidden layer -> hidden layer
         params.append(w)
-    w_o = share_weights(np.random.randn(*(n_hidden_f, n_output_f - 1)) * 0.01)       # ko dung energy
+    w_o = share_weights(np.random.randn(*(n_hidden_f, n_output_f - 1)) * 0.01)       # wieght matrix hidden layer -> hidden layer - not use energy
     params.append(w_o)
-    return nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params
+    return params
 
 def floatX(X):
     return np.asarray(X, dtype=theano.config.floatX)
