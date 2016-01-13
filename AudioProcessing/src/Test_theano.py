@@ -1,3 +1,4 @@
+'''
 import theano
 from theano import tensor as T
 import numpy as np
@@ -40,15 +41,12 @@ print w.get_value(), b.get_value()
 plt.plot(trX,trY,'.')
 plt.plot(trX,trX *  w.get_value())
 plt.show()    
-
-        
 '''
-a = T.scalar()
-b = T.scalar()
-y = a * b
+import numpy as np
+a = np.array([1,2,3,20,5])
+print a
+b = np.array([3,2,1,4,6])
 
-multiply = theano.function(inputs=[a,b], outputs= y)
-
-print multiply(3,2)
-print multiply(4,5)
-'''
+c = zip(range(0,11,3),range(0,11,3))
+print len(c)
+print c

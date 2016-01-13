@@ -73,7 +73,7 @@ def read_features():
     listfile = sorted(os.listdir(feature_in_dir))
     for afile in listfile:
         read_afile(feature_in_dir + afile,109 , input_arr)
-#         if count >10:
+#         if count > 2:
 #             break
 #         count += 1      
               
@@ -81,23 +81,10 @@ def read_features():
     listfile_out = sorted(os.listdir(feature_out_dir))
     for afile in listfile_out:
         read_afile(feature_out_dir + afile, 13 + 24, output_arr)
-#         if count > 10:
+#         if count > 2:
 #             break
 #         count += 1
-    '''   
-    listtest = sorted(os.listdir(test_dir))
-    for afile in listtest:
-        #print afile                 #usctimit_ema_f1_001_005_100ms_noise_in.txt
-        read_afile(test_dir + afile, 109, test_arr)
-        find_ = [m.start() for m in re.finditer('_', afile)]      
-        file_mat = (afile.replace(afile[find_[4]:find_[6]],'')).replace('in.','out.')   #usctimit_ema_f1_001_005_out.txt
-        read_afile(feature_out_dir + file_mat, 13 + 24, test_res_arr)
-    '''
-#     print factors
-#     print input_arr[0]
-#     a = np.array(input_arr).astype(np.float32)
-#     print a.max(), a.min()
-#     print np.argmin(a)
+
     return np.array(input_arr).astype(np.float32), np.array(output_arr).astype(np.float32)
 
 #load_data()

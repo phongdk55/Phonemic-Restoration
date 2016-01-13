@@ -1,9 +1,9 @@
 import numpy as np
 import theano
 
-def save_weight_info(filename, nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params):
+def save_weight_info(filename, nloop,n_hidden_layer, n_input_f, n_hidden_f, n_output_f, params, cost):
     weight_file = open(filename,'w')
-    weight_file.write("%s %s %s %s %s\n" %(nloop, n_hidden_layer,  n_input_f - 1, n_hidden_f, n_output_f - 1))
+    weight_file.write("%s %s %s %s %s %s\n" %(nloop, n_hidden_layer,  n_input_f - 1, n_hidden_f, n_output_f - 1, cost))
     for w in params:
         a_matrix = w.get_value()
         [m,n] = a_matrix.shape

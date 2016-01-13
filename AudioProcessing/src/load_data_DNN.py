@@ -75,17 +75,17 @@ def read_features():
     for afile in listfile:
         read_afile(feature_in_dir + afile,109 , input_arr)
         #print afile
-        if count > 10:
-            break
-        count += 1      
+#         if count > 10:
+#             break
+#         count += 1      
               
     count = 0
     
     for afile in listfile_out:
         read_afile(feature_out_dir + afile, 13 + 24, output_arr)
-        if count > 10:
-            break
-        count += 1
+#         if count > 10:
+#             break
+#         count += 1
     
     return np.array(input_arr).astype(np.float32), np.array(output_arr).astype(np.float32)
 
