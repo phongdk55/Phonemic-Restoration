@@ -31,7 +31,7 @@ class Deep_Neural_Network():
         
         load_params = False
         self.hidden_layer = '5_layers/'       # = n_hidden layer below
-        self.artic = 'artic/noises/'
+        self.artic = 'no_artic/noises/'
         id_file = 1
         weight_folder = '../weight_DNN/SQR/' + self.hidden_layer + self.artic + 'test_' + str(self.test_number) + '/'
         
@@ -45,9 +45,9 @@ class Deep_Neural_Network():
         else:
             self.nloop = 0
             self.n_hidden_layer = 5
-            self.n_input_f = 109
+            self.n_input_f = 37 #109
             self.n_hidden_f = 512
-            self.n_output_f = 37
+            self.n_output_f = 13 #37
             params = load_initial_info(self.n_hidden_layer, self.n_input_f, self.n_hidden_f, self.n_output_f)    
             
         trX = trX[:,1:self.n_input_f]

@@ -5,7 +5,7 @@ import numpy as np
 from load_data_DNN import load_data
 #http://unix.stackexchange.com/questions/52703/using-atlas-from-scipy
 
-srng = RandomStreams()
+#srng = RandomStreams()
 
 def floatX(X):
     return np.asarray(X, dtype=theano.config.floatX)
