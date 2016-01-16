@@ -30,8 +30,6 @@ def run():
             print filename
             #print filename.replace('.txt','_in.txt')
             evaluate(origin_dir + filename.replace('.txt','_in.txt'), directory_ + '/' +filename)
-            #evaluate(origin_dir + filename.replace('_100ms',''), directory_ + '/' +filename)
-            
+            #evaluate(origin_dir + filename.replace('_100ms',''), directory_ + '/' +filename)0            
             exit()
-
 run()

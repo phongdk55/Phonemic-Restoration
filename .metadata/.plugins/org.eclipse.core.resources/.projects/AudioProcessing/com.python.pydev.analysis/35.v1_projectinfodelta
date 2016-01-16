@@ -1,11 +1,1 @@
-INSTUPPhonemic_DNN_SGD
-/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_SGD.py
-INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0&&2|8|2|0
-read_afile=6
-model=5
-write_predict_2_file=8
-deep_neural_network=7
-floatX=1
-sgd=4
-init_weights=3
-Phonemic_DNN_SGD=2
+DELSTRPhonemic_DNN_no_artic

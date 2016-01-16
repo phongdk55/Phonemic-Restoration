@@ -2,10 +2,14 @@ MODULES_MANAGER_V2
 AudioExtraction|/home/danglab/workspace/AudioProcessing/src/AudioExtraction.py
 AudioExtraction_2|/home/danglab/workspace/AudioProcessing/src/AudioExtraction_2.py
 Bias|/home/danglab/workspace/AudioProcessing/src/Bias.py
+Evaluation|/home/danglab/workspace/AudioProcessing/src/Evaluation.py
 Phonemic_DNN|/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN.py
 Phonemic_DNN_SGD|/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_SGD.py
 Phonemic_DNN_SGD_2|/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_SGD_2.py
+Phonemic_DNN_no_artic|/home/danglab/workspace/AudioProcessing/src/Phonemic_DNN_no_artic.py
 Test_theano|/home/danglab/workspace/AudioProcessing/src/Test_theano.py
+Utility|/home/danglab/workspace/AudioProcessing/src/Utility.py
 load_data_DNN|/home/danglab/workspace/AudioProcessing/src/load_data_DNN.py
 load_data_DNN_norm|/home/danglab/workspace/AudioProcessing/src/load_data_DNN_norm.py
+normal_all|/home/danglab/workspace/AudioProcessing/src/normal_all.py
 weight_matrix|/home/danglab/workspace/AudioProcessing/src/weight_matrix.py

@@ -1,0 +1,5 @@
+MODULES_MANAGER_V2
+Bias|/home/danglab/workspace/DNN_Bias/src/Bias.py
+Phonemic_DNN_SGD|/home/danglab/workspace/DNN_Bias/src/Phonemic_DNN_SGD.py
+load_data_DNN_norm|/home/danglab/workspace/DNN_Bias/src/load_data_DNN_norm.py
+weight_matrix|/home/danglab/workspace/DNN_Bias/src/weight_matrix.py

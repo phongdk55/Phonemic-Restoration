@@ -30,6 +30,9 @@ train = theano.function(inputs=[X, Y], outputs=cost, updates=update, allow_input
 predict = theano.function(inputs=[X], outputs=y_pred, allow_input_downcast=True)
 
 for i in range(20):
+    error_total = 0
     for start, end in zip(range(0, len(trX), 128), range(128, len(trX), 128)):
         cost = train(trX[start:end], trY[start:end])
-    print i, np.mean(np.argmax(teY, axis=1) == predict(teX))
+        error_total += cost
+    print error_total
+    #print i, np.mean(np.argmax(teY, axis=1) == predict(teX))

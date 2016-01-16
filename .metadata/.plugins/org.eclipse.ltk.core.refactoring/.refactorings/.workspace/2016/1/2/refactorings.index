@@ -1,2 +1,5 @@
 1451877018694	Delete resource 'AudioProcessing/src/weight_DNN'
 1451918336665	Delete resource 'AudioProcessing/src/SpeechMissing.py'
+1452337158597	Delete resource 'DNN_Bias'
+1452346095956	Delete resource 'AudioProcessing/weight_DNN/6_layers'
+1452346127538	Delete resource 'AudioProcessing/weight_DNN/SGD'

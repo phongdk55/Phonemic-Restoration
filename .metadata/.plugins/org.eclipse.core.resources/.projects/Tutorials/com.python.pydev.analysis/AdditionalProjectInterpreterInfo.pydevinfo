@@ -2,7 +2,7 @@
 -- START DISKCACHE_2
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Tutorials/com.python.pydev.analysis/v2_indexcache
 3_net|1450336030000000000|/home/danglab/workspace/Tutorials/src/3_net.py
-2_logistic_regression|1450332803000000000|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
+2_logistic_regression|1452177021000000000|/home/danglab/workspace/Tutorials/src/2_logistic_regression.py
 load|1449750369000000000|/home/danglab/workspace/Tutorials/src/load.py
 1_linear_regression|1449918300000000000|/home/danglab/workspace/Tutorials/src/1_linear_regression.py
 4_modern_net|1450354510000000000|/home/danglab/workspace/Tutorials/src/4_modern_net.py
@@ -20,7 +20,7 @@ load|1449750369000000000|/home/danglab/workspace/Tutorials/src/load.py
 1=5_convolutional_net
 -- END DICTIONARY
 -- START TREE 1
-36
+37
 X|5|X!11@X!19@X!27@X!35@X!43@
 Y|5|Y!19@Y!27@Y!35@Y!43@Y!11@
 a|1|a!51@
@@ -28,6 +28,7 @@ b|1|b!51@
 cos|5|cost!27@cost!43@cost!35@cost!19@cost!11@
 dat|1|datasets_dir!59@
 dro|2|dropout!10@dropout!18@
+err|1|error_total!43@
 flo|4|floatX!42@floatX!18@floatX!26@floatX!10@
 gra|2|gradient!43@gradient!35@
 ini|4|init_weights!42@init_weights!10@init_weights!26@init_weights!18@

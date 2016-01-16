@@ -1,0 +1,47 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/DNN_Bias/com.python.pydev.analysis/v2_indexcache
+load_data_DNN_norm|1452179905000000000|/home/danglab/workspace/DNN_Bias/src/load_data_DNN_norm.py
+weight_matrix|1452345548000000000|/home/danglab/workspace/DNN_Bias/src/weight_matrix.py
+Bias|1450014920000000000|/home/danglab/workspace/DNN_Bias/src/Bias.py
+Phonemic_DNN_SGD|1452345847000000000|/home/danglab/workspace/DNN_Bias/src/Phonemic_DNN_SGD.py
+-- END DISKCACHE
+-- START DICTIONARY
+4
+1=load_data_DNN_norm
+4=weight_matrix
+3=Bias
+2=Phonemic_DNN_SGD
+-- END DICTIONARY
+-- START TREE 1
+26
+cou|1|count!11@
+dee|1|deep_neural_network!18@
+f1|1|f1!27@
+f2|1|f2!27@
+fac|1|factor_arr!11@
+fea|2|features_arr!11@feature!11@
+flo|1|floatX!34@
+inp|3|input_dir!11@input_arr!11@input_file!11@
+ite|1|iters!27@
+loa|3|load_weight_info!34@load_initial_info!34@load_data!10@
+mod|1|model!18@
+no_|1|no_borrow!27@
+out|2|output_arr!11@output_dir!11@
+r|1|r!27@
+rea|4|read_features!10@read_afile!10@read_file_test!18@read_data!10@
+rng|1|rng!27@
+sav|1|save_weight_info!34@
+seq|1|sequential_number!11@
+sgd|1|sgd!18@
+sha|1|share_weights!34@
+sta|1|start!11@
+t0|1|t0!27@
+t1|1|t1!27@
+vle|1|vlen!27@
+wri|1|write_predict_2_file!18@
+x|1|x!27@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE
