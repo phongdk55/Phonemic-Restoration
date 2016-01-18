@@ -1,0 +1,10 @@
+INSTUPload_data_DNN
+/home/danglab/workspace/PhonemicRestoration/src/load_data_DNN.py
+INFOS:&&3|1|2|0&&3|3|2|0&&3|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0
+read_afile=5
+missing_filename=4
+read_file_test=7
+load_data_DNN=2
+read_features=6
+output_arr=3
+input_arr=1

@@ -1,0 +1,75 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/PhonemicRestoration/com.python.pydev.analysis/v2_indexcache
+load_data_DNN|1453022635000000000|/home/danglab/workspace/PhonemicRestoration/src/load_data_DNN.py
+origin_main|1453096031000000000|/home/danglab/workspace/PhonemicRestoration/src/origin_main.py
+weight_matrix|1452171789000000000|/home/danglab/workspace/PhonemicRestoration/src/weight_matrix.py
+Bias|1450014920000000000|/home/danglab/workspace/PhonemicRestoration/src/Bias.py
+main|1453037155000000000|/home/danglab/workspace/PhonemicRestoration/src/main.py
+Utility|1452862919000000000|/home/danglab/workspace/PhonemicRestoration/src/Utility.py
+-- END DISKCACHE
+-- START DICTIONARY
+10
+8=Deep_Neural_Network.__init__
+6=load_data_DNN
+7=Deep_Neural_Network
+2=origin_main
+5=weight_matrix
+9=Deep_Neural_Network._training_DNN
+10=Deep_Neural_Network._load_parameters
+4=Bias
+3=main
+1=Utility
+-- END DICTIONARY
+-- START TREE 1
+26
+chu|1|chunks!10@
+dee|2|Deep_Neural_Network!17@Deep_Neural_Network!25@
+f1|1|f1!35@
+f2|1|f2!35@
+flo|1|floatX!42@
+fol|1|FOLD!11@
+get|1|get_all_filename!10@
+inp|1|input_arr!51@
+ite|1|iters!35@
+loa|2|load_weight_info!42@load_initial_info!42@
+mis|1|missing_filename!51@
+no_|1|no_borrow!35@
+out|1|output_arr!51@
+pho|2|Phonemic_DNN!27@Phonemic_DNN!19@
+r|1|r!35@
+rea|3|read_file_test!50@read_features!50@read_afile!50@
+ren|1|rename_all_file!10@
+rng|1|rng!35@
+sav|1|save_weight_info!42@
+sha|1|share_weights!42@
+sli|1|slide!10@
+t0|1|t0!35@
+t1|1|t1!35@
+tes|0|
+vle|1|vlen!35@
+x|1|x!35@
+-- END TREE
+-- START TREE 2
+20
+__i|2|__init__!7&18@__init__!7&26@
+_lo|2|_load_parameters!7&18@_load_parameters!7&26@
+_mo|2|_model!7&18@_model!7&26@
+_sg|2|_sgd!7&18@_sgd!7&26@
+_te|2|_testing_DNN!7&26@_testing_DNN!7&18@
+_tr|2|_training_DNN!7&26@_training_DNN!7&18@
+_wr|2|_write_predict_2_file!7&26@_write_predict_2_file!7&18@
+art|2|artic!8&27@artic!8&19@
+fil|4|filename!9&27@filename!10&27@filename!9&19@filename!10&19@
+hid|2|hidden_layer!8&19@hidden_layer!8&27@
+id_|4|id_file!9&27@id_file!10&27@id_file!9&19@id_file!10&19@
+n_h|4|n_hidden_layer!10&27@n_hidden_f!10&19@n_hidden_f!10&27@n_hidden_layer!10&19@
+n_i|2|n_input_f!10&27@n_input_f!10&19@
+n_o|2|n_output_f!10&27@n_output_f!10&19@
+nlo|2|nloop!10&19@nloop!10&27@
+par|2|params!10&19@params!10&27@
+pre|2|predict!9&19@predict!9&27@
+spa|1|space!8&27@
+tes|2|test_number!8&27@test_number!8&19@
+wei|2|weight_folder!10&27@weight_folder!10&19@
+-- END TREE

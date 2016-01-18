@@ -1703,6 +1703,7 @@ gtk._gtk|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/_gtk.so
 gtk._lazyutils|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/_lazyutils.py
 gtk.compat|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/compat.py
 gtk.deprecation|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/deprecation.py
+gtk.glade|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/glade.so
 gtk.keysyms|/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/keysyms.py
 gtkunixprint|/usr/lib/python2.7/dist-packages/gtk-2.0/gtkunixprint.so
 gwibber.__init__|/usr/lib/python2.7/dist-packages/gwibber/__init__.py
@@ -3057,7 +3058,7 @@ pyinotify|/usr/lib/python2.7/dist-packages/pyinotify.py
 pylab|/usr/local/lib/python2.7/dist-packages/pylab.py
 pynotify.__init__|/usr/lib/python2.7/dist-packages/gtk-2.0/pynotify/__init__.py
 pynotify._pynotify|/usr/lib/python2.7/dist-packages/gtk-2.0/pynotify/_pynotify.so
-pyparsing|/usr/local/lib/python2.7/dist-packages/pyparsing.py
+pyparsing|/usr/lib/python2.7/dist-packages/pyparsing.py
 pyqtconfig|/usr/lib/pymodules/python2.7/pyqtconfig.py
 pytest|/usr/local/lib/python2.7/dist-packages/pytest-2.8.4-py2.7.egg/pytest.py
 pytools.__init__|/usr/local/lib/python2.7/dist-packages/pytools-2015.1.6-py2.7.egg/pytools/__init__.py

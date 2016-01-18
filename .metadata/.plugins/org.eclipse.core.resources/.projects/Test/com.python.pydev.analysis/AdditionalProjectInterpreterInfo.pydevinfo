@@ -3,24 +3,27 @@
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Test/com.python.pydev.analysis/v2_indexcache
 Test|1451825595000000000|/home/danglab/workspace/Test/src/Test.py
 classification|1450337375000000000|/home/danglab/workspace/Test/src/classification.py
+PCA|1452915447000000000|/home/danglab/workspace/Test/src/PCA.py
 -- END DISKCACHE
 -- START DICTIONARY
-2
-2=Test
+3
+3=Test
 1=classification
+2=PCA
 -- END DICTIONARY
 -- START TREE 1
-10
-X|2|X!11@X!19@
-Y|2|Y!19@Y!11@
+11
+X|3|X!11@X!19@X!27@
+Y|2|Y!27@Y!11@
 cla|1|classify!10@
-flo|2|floatX!10@floatX!18@
-ini|2|init_weights!18@init_weights!10@
-lin|2|linear_2!18@linear!18@
-mod|2|model!10@model!18@
-qua|2|quadratic!18@quadratic_model!18@
-trx|2|trX!11@trX!19@
-try|2|trY!19@trY!11@
+flo|2|floatX!10@floatX!26@
+ini|2|init_weights!26@init_weights!10@
+lin|2|linear_2!26@linear!26@
+mod|2|model!10@model!26@
+pca|1|pca!19@
+qua|2|quadratic!26@quadratic_model!26@
+trx|2|trX!11@trX!27@
+try|2|trY!27@trY!11@
 -- END TREE
 -- START TREE 2
 0

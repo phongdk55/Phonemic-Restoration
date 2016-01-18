@@ -51,12 +51,12 @@ def get_all_filename():
                 file_test.write('%s\n' %(test[i][k]))            
 
 def rename_all_file():
-    direc = '/home/danglab/Phong/TestData/Features_Norm_Space/'
-    
+    #direc = '/home/danglab/Phong/TestData/Features_Norm_Space/'
+    direc = '/home/danglab/Phong/features_3p/Space/'
     for folder in os.listdir(direc):
         path = direc + folder + "/"
         for filename in os.listdir(path):
             print filename
             print filename.replace("_in_in",'_in')
             os.rename(path+filename, path + filename.replace("_in_in",'_in'))
-            
+#rename_all_file()          

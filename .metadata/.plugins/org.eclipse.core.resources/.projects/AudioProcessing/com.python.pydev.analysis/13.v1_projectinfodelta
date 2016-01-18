@@ -1,1 +1,9 @@
-DELSTRload_data_DNN_norm
+INSTUPUtility
+/home/danglab/workspace/AudioProcessing/src/Utility.py
+INFOS:&&3|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0
+chunks=3
+rename_all_file=6
+get_all_filename=5
+slide=4
+FOLD=1
+Utility=2
