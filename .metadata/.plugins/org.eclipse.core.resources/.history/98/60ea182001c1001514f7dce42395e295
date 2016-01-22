@@ -1,0 +1,92 @@
+import numpy as np
+import os
+from load_data_DNN import read_file_test, read_afile
+from math import *
+
+#origin_dir = '/home/danglab/Phong/features_3p/Noise/'
+origin_dir = '/home/danglab/Phong/features_3p/origin/input/'         #file includes 12-MFCC, 24-pos
+after_dnn_dir = '/home/danglab/3P/5_layers/SQR/artic/space/test_0/'
+before_dnn_dir = '/home/danglab/Phong/features_3p/Space/'
+
+evaluation = '/home/danglab/Phong/features_3p/Noise/'
+
+def normalise_mfcc(X):
+    max_X = abs(X).max()
+    #print max_X
+    Y = X / max_X
+    return Y[:,1:13] 
+
+def evaluate(original_file, test_file):    
+    #print original_file
+    #print test_file
+    ori_arr = read_file_test(original_file, 13, )
+    test_arr = read_file_test(test_file, 13)
+    ori_arr = ori_arr[:,1:13]#normalise_mfcc(ori_arr)               # take 12 coefficients
+    test_arr = normalise_mfcc(test_arr)
+    #print test_arr.max()
+    subtract = (ori_arr - test_arr) ** 2
+    rms = sqrt(subtract.sum()) #/(ori_arr.shape[0] * ori_arr.shape[1])
+    #print rms #, ori_arr.shape[0] * ori_arr.shape[1]
+    #subtract = (ori_arr - test_arr)
+    #print subtract.max()
+    
+    [m,n] = ori_arr.shape
+    a = ori_arr.reshape(1,m*n)
+    b = test_arr.reshape(1,m*n)
+    return np.corrcoef(a,b)[0,1]
+    
+    return rms
+
+def run():
+    list_folder = sorted(os.listdir(after_dnn_dir))
+    for folder in list_folder:
+        
+        directory_ = after_dnn_dir + folder
+        
+        print directory_
+        total_rms = 0
+        for filename in sorted(os.listdir(directory_)):
+            file_after_dnn = directory_ + '/' +filename
+            a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), file_after_dnn )
+            total_rms += a_rms
+        print total_rms / len(os.listdir(directory_))
+        '''
+        total_rms = 0
+        cnt = 0
+        find = folder.split('_')
+        for filename in sorted(os.listdir(directory_)):
+            #print filename
+            #find = filename.split('.')
+            #print find
+            file_before_dnn =  before_dnn_dir + folder + '/' +filename.replace('.txt','_' + find[1] + "_in.txt")
+            try:
+                a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), file_before_dnn)     
+                total_rms += a_rms
+                cnt +=1
+            except:
+                print filename
+        print total_rms / cnt    
+        '''
+run()
+'''
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_100ms_1_-3dB
+0.356238046879
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_100ms_1_-6dB
+0.404069586943
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_200ms_1_-3dB
+0.360069018959
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_200ms_1_-6dB
+0.407725908056
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_50ms_1_-3dB
+0.354822518965
+/home/danglab/3P/5_layers/SQR/artic/noises/test_0/0_50ms_1_-6dB
+0.404370943212
+     
+'''
+
+0.403738200029
+0.403738200029
+0.399298414628
+0.399298414628
+0.416034360179
+0.416034360179

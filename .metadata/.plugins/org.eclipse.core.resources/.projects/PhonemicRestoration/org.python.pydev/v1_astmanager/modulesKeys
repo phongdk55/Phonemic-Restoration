@@ -1,7 +1,11 @@
 MODULES_MANAGER_V2
 Bias|/home/danglab/workspace/PhonemicRestoration/src/Bias.py
+Evaluation|/home/danglab/workspace/PhonemicRestoration/src/Evaluation.py
 Utility|/home/danglab/workspace/PhonemicRestoration/src/Utility.py
+backup_main|/home/danglab/workspace/PhonemicRestoration/src/backup_main.py
 load_data_DNN|/home/danglab/workspace/PhonemicRestoration/src/load_data_DNN.py
 main|/home/danglab/workspace/PhonemicRestoration/src/main.py
+main_b|/home/danglab/workspace/PhonemicRestoration/src/main_b.py
 origin_main|/home/danglab/workspace/PhonemicRestoration/src/origin_main.py
 weight_matrix|/home/danglab/workspace/PhonemicRestoration/src/weight_matrix.py
+weight_matrix_b|/home/danglab/workspace/PhonemicRestoration/src/weight_matrix_b.py

@@ -1,4 +1,8 @@
 MODULES_MANAGER_V2
 PCA|/home/danglab/workspace/Test/src/PCA.py
+Phonemic_DNN_SGD|/home/danglab/workspace/Test/src/Phonemic_DNN_SGD.py
 Test|/home/danglab/workspace/Test/src/Test.py
 classification|/home/danglab/workspace/Test/src/classification.py
+correlation|/home/danglab/workspace/Test/src/correlation.py
+load_data_DNN_norm|/home/danglab/workspace/Test/src/load_data_DNN_norm.py
+weight_matrix|/home/danglab/workspace/Test/src/weight_matrix.py

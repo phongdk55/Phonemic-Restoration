@@ -1,0 +1,89 @@
+import numpy as np
+import os
+from load_data_DNN import read_file_test, read_afile
+from math import *
+
+#origin_dir = '/home/danglab/Phong/features_3p/Noise/'
+origin_dir = '/home/danglab/Phong/features_3p/origin/input/'         #file includes 12-MFCC, 24-pos
+after_dnn_dir = '/home/danglab/3P/5_layers/SQR/artic/space/test_0/'
+#test_dir = '/home/danglab/Phong/TestData/Features_Norm/'
+before_dnn_dir = '/home/danglab/Phong/features_3p/Noise/'
+evaluation = '/home/danglab/Phong/features_3p/Noise/'
+
+def normalise_mfcc(X):
+    max_X = abs(X).max()
+    #print max_X
+    Y = X / max_X
+    return Y[:,1:13] 
+
+def evaluate(original_file, test_file):    
+    #print original_file
+    #print test_file
+    ori_arr = read_file_test(original_file, 13, )
+    test_arr = read_file_test(test_file, 13)
+    ori_arr = ori_arr[:,1:13]#normalise_mfcc(ori_arr)               # take 12 coefficients
+    test_arr = normalise_mfcc(test_arr)
+    #print test_arr.max()
+    subtract = (ori_arr - test_arr) ** 2
+    rms = sqrt(subtract.sum()) #/(ori_arr.shape[0] * ori_arr.shape[1])
+    #print rms #, ori_arr.shape[0] * ori_arr.shape[1]
+    #subtract = (ori_arr - test_arr)
+    #print subtract.max()
+    
+    [m,n] = ori_arr.shape
+    a = ori_arr.reshape(1,m*n)
+    b = test_arr.reshape(1,m*n)
+    return np.corrcoef(a,b)[0,1]
+    
+    return rms
+
+def run():
+    list_folder = sorted(os.listdir(after_dnn_dir))
+    for folder in list_folder:
+        directory_ = after_dnn_dir + folder
+        print directory_
+        '''
+        #print find_[1]
+        total_rms = 0
+        for filename in sorted(os.listdir(directory_)):
+            #find = filename.split('_')
+            a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), directory_ + '/' +filename)
+            #a_rms = evaluate(origin_dir + filename.replace(find[5] + "_",''), directory_ + '/' +filename)
+            #a_rms = evaluate(origin_dir + folder + "/" + filename.replace('.txt','_'+find_[1] +'_in.txt'), directory_ + '/' +filename)      
+            total_rms += a_rms
+        print total_rms / len(os.listdir(directory_))
+        '''
+        #directory_ = before_dnn_dir + folder
+        total_rms = 0
+        cnt = 0
+        find = folder.split('_')
+        for filename in sorted(os.listdir(directory_)):
+            #print filename
+            #find = filename.split('.')
+            #print find
+            print before_dnn_dir + folder + '/' +filename.replace('.txt',find[1] + "_in.txt")
+            try:
+                a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), before_dnn_dir + folder + '/' +filename.replace(find[5] + "_",''))     
+                total_rms += a_rms
+                cnt +=1
+            except:
+                print filename
+        print total_rms / cnt
+        
+run()
+'''
+   pydev debugger: starting (pid: 9541)
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_100ms_1_-3dB
+0.414306200679
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_100ms_1_-6dB
+0.414306200679
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_200ms_1_-3dB
+0.431674910881
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_200ms_1_-6dB
+0.431674910881
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_50ms_1_-3dB
+0.430559039502
+/home/danglab/3P/5_layers/SQR/artic/space/test_0/0_50ms_1_-6dB
+0.430559039502
+     
+'''

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PhonemicRestoration/src/backup_main&apos; to &apos;backup_main.py&apos;" description="Rename resource &apos;backup_main&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/backup_main" name="backup_main.py" stamp="1453178235344" updateReferences="true"/>
+</session>
