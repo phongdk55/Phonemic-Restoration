@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Net_MFCC_Space/weight_DNN_Space/SQR&apos; to &apos;50ms&apos;" description="Rename resource &apos;SQR&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="weight_DNN_Space/SQR" name="50ms" stamp="1453782126102" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Net_MFCC_Space/src/load_unnomal&apos; to &apos;load_unnomal.py&apos;" description="Rename resource &apos;load_unnomal&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/load_unnomal" name="load_unnomal.py" stamp="1453964644441" updateReferences="true"/>
+</session>

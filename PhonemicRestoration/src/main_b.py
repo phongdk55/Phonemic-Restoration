@@ -14,7 +14,7 @@ class Deep_Neural_Network():
         self.test_number = 0
         self._load_parameters()
         self._training_DNN()
-        self._run_testing_DNN()
+        #self._run_testing_DNN()
         
     def _sgd(self,cost, params, bias, lr=0.05):             # generalize to compute gradient descent
         updates = []
@@ -41,7 +41,7 @@ class Deep_Neural_Network():
         load_params = False
         
         self.id_file = 1
-        self.weight_folder = '../weight_DNN_b/SQR/' + self.hidden_layer + self.artic + 'test_' + str(self.test_number) + '/'
+        self.weight_folder = '../weight/' + 'test_' + str(self.test_number) + '/'
         
         if not os.path.exists(self.weight_folder):
             os.makedirs(self.weight_folder)
@@ -92,6 +92,10 @@ class Deep_Neural_Network():
             save_weight_info( self.filename, i, self.n_hidden_layer, self.n_input_f, self.n_hidden_f, self.n_output_f, self.params, error_total, self.bias)
             self.id_file = 1 - self.id_file
             self.filename = self.weight_folder + 'Phonemic_DNN_SGD_id_' + str(self.id_file) + ".txt"
+            if error_total <= 0.92:
+                "print ------------------------"
+                exit()
+            
             
     def _run_testing_DNN(self):
         test_dir = '/home/danglab/Phong/features_3p/Space/'  

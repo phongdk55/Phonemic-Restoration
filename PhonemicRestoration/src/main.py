@@ -72,7 +72,7 @@ class Deep_Neural_Network():
         #LOG_FILENAME = 'DNN.log'
         #logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
               
-        for i in range(self.nloop, self.nloop + 500 ):
+        for i in range(self.nloop, self.nloop + 0 ):
             print i
             #logging.debug('loop' + str(i))
             error_total = 0

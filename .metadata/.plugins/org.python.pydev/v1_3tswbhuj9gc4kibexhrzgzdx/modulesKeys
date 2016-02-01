@@ -2186,6 +2186,7 @@ matplotlib.tests.test_collections|/usr/local/lib/python2.7/dist-packages/matplot
 matplotlib.tests.test_colorbar|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_colorbar.py
 matplotlib.tests.test_colors|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_colors.py
 matplotlib.tests.test_compare_images|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_compare_images.py
+matplotlib.tests.test_container|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_container.py
 matplotlib.tests.test_contour|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_contour.py
 matplotlib.tests.test_cycles|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_cycles.py
 matplotlib.tests.test_dates|/usr/local/lib/python2.7/dist-packages/matplotlib/tests/test_dates.py

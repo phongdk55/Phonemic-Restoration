@@ -1,34 +1,52 @@
 -- VERSION_4
 -- START DISKCACHE_2
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Test/com.python.pydev.analysis/v2_indexcache
-Test|1451825595000000000|/home/danglab/workspace/Test/src/Test.py
+Test|1453472674000000000|/home/danglab/workspace/Test/src/Test.py
+load_data_DNN_norm|1452179905000000000|/home/danglab/workspace/Test/src/load_data_DNN_norm.py
 classification|1450337375000000000|/home/danglab/workspace/Test/src/classification.py
+weight_matrix|1453471571000000000|/home/danglab/workspace/Test/src/weight_matrix.py
 correlation|1453451492000000000|/home/danglab/workspace/Test/src/correlation.py
-PCA|1452915447000000000|/home/danglab/workspace/Test/src/PCA.py
+Phonemic_DNN_SGD|1453476519000000000|/home/danglab/workspace/Test/src/Phonemic_DNN_SGD.py
+PCA|1453473509000000000|/home/danglab/workspace/Test/src/PCA.py
 -- END DISKCACHE
 -- START DICTIONARY
-4
-3=Test
+6
+2=Test
+4=load_data_DNN_norm
 1=classification
-4=correlation
-2=PCA
+6=weight_matrix
+3=correlation
+5=Phonemic_DNN_SGD
 -- END DICTIONARY
 -- START TREE 1
-14
-X|3|X!11@X!19@X!27@
-Y|2|Y!27@Y!11@
-a|1|a!35@
-b|1|b!35@
+27
+X|2|X!11@X!19@
+Y|2|Y!19@Y!11@
+a|1|a!27@
+b|1|b!27@
 cla|1|classify!10@
-flo|2|floatX!10@floatX!26@
-ini|2|init_weights!26@init_weights!10@
-lin|2|linear_2!26@linear!26@
-mod|2|model!10@model!26@
-pca|1|pca!19@
-qua|2|quadratic!26@quadratic_model!26@
-r|1|r!35@
-trx|2|trX!11@trX!27@
-try|2|trY!27@trY!11@
+cou|1|count!35@
+dee|1|deep_neural_network!42@
+fac|1|factor_arr!35@
+fea|2|features_arr!35@feature!35@
+flo|3|floatX!10@floatX!18@floatX!50@
+ini|2|init_weights!18@init_weights!10@
+inp|3|input_dir!35@input_arr!35@input_file!35@
+lin|2|linear_2!18@linear!18@
+loa|3|load_weight_info!50@load_initial_info!50@load_data!34@
+mod|3|model!10@model!18@model!42@
+out|2|output_arr!35@output_dir!35@
+qua|2|quadratic!18@quadratic_model!18@
+r|1|r!27@
+rea|4|read_features!34@read_afile!34@read_file_test!42@read_data!34@
+sav|1|save_weight_info!50@
+seq|1|sequential_number!35@
+sgd|1|sgd!42@
+sha|1|share_weights!50@
+sta|1|start!35@
+trx|2|trX!11@trX!19@
+try|2|trY!19@trY!11@
+wri|1|write_predict_2_file!42@
 -- END TREE
 -- START TREE 2
 0

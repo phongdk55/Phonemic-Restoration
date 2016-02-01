@@ -1,9 +1,12 @@
 MODULES_MANAGER_V2
 Bias|/home/danglab/workspace/PhonemicRestoration/src/Bias.py
 Evaluation|/home/danglab/workspace/PhonemicRestoration/src/Evaluation.py
+Evaluation_test_phase|/home/danglab/workspace/PhonemicRestoration/src/Evaluation_test_phase.py
+Test_phase_0|/home/danglab/workspace/PhonemicRestoration/src/Test_phase_0.py
 Utility|/home/danglab/workspace/PhonemicRestoration/src/Utility.py
 backup_main|/home/danglab/workspace/PhonemicRestoration/src/backup_main.py
 load_data_DNN|/home/danglab/workspace/PhonemicRestoration/src/load_data_DNN.py
+load_test|/home/danglab/workspace/PhonemicRestoration/src/load_test.py
 main|/home/danglab/workspace/PhonemicRestoration/src/main.py
 main_b|/home/danglab/workspace/PhonemicRestoration/src/main_b.py
 origin_main|/home/danglab/workspace/PhonemicRestoration/src/origin_main.py

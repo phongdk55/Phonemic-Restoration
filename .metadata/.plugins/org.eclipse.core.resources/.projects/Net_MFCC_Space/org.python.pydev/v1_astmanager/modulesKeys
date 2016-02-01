@@ -1,0 +1,9 @@
+MODULES_MANAGER_V2
+Bias|/home/danglab/workspace/Net_MFCC_Space/src/Bias.py
+Evaluation|/home/danglab/workspace/Net_MFCC_Space/src/Evaluation.py
+Utility|/home/danglab/workspace/Net_MFCC_Space/src/Utility.py
+load_data_DNN|/home/danglab/workspace/Net_MFCC_Space/src/load_data_DNN.py
+load_unnormal|/home/danglab/workspace/Net_MFCC_Space/src/load_unnormal.py
+main|/home/danglab/workspace/Net_MFCC_Space/src/main.py
+unnomal|/home/danglab/workspace/Net_MFCC_Space/src/unnomal.py
+weight_matrix|/home/danglab/workspace/Net_MFCC_Space/src/weight_matrix.py

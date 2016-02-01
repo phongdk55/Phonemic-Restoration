@@ -87,7 +87,7 @@ def load_initial_info(n_hidden_layer, n_input_f, n_hidden_f, n_output_f):
     w_h = share_weights(np.random.randn(*(n_input_f - 1, n_hidden_f)) * 0.01 )      # weight matrix input -> hidden layer - not use energy
     #b_h = share_weights(np.random.randn(*(1, n_hidden_f)) * 0.01 ) 
     
-    b_h = share_weights(np.random.randn(*(n_hidden_f,)) * 0.01 ) 
+    b_h = share_weights(np.random.randn(*(n_hidden_f ,)) * 0.01 ) 
     params = [w_h]
     bias = [b_h]
     for u in xrange(n_hidden_layer -1 ):

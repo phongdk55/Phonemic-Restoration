@@ -15,14 +15,14 @@
 		<item value="false" key="wholeword"/>
 		<item value="mfcc" key="selection"/>
 		<list key="findhistory">
+			<item value="True"/>
+			<item value="a"/>
 			<item value="la"/>
 			<item value="mfcc"/>
 			<item value="nan"/>
 			<item value="loop"/>
 			<item value="factor"/>
 			<item value="clear_un"/>
-			<item value="clear"/>
-			<item value="-lpy"/>
 		</list>
 		<list key="replacehistory">
 		</list>
