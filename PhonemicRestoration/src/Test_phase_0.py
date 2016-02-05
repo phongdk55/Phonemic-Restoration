@@ -5,7 +5,7 @@ from load_test import read_features, read_file_test
 import math
 import os,re
 import logging
-from weight_matrix_b import save_weight_info, load_weight_info, load_initial_info
+from weight_matrix import save_weight_info, load_weight_info, load_initial_info
 
 class Deep_Neural_Network():
     def __init__(self):        
