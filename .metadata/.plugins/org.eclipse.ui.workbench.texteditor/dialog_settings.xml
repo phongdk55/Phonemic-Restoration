@@ -15,16 +15,17 @@
 		<item value="false" key="wholeword"/>
 		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="business"/>
+			<item value="sierra "/>
+			<item value="sierra"/>
+			<item value="self."/>
 			<item value="full"/>
 			<item value="True"/>
 			<item value="a"/>
 			<item value="la"/>
-			<item value="mfcc"/>
-			<item value="nan"/>
-			<item value="loop"/>
-			<item value="factor"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 </section>

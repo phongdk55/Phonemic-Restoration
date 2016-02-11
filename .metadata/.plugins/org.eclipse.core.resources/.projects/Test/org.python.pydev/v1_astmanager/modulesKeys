@@ -5,4 +5,5 @@ Test|/home/danglab/workspace/Test/src/Test.py
 classification|/home/danglab/workspace/Test/src/classification.py
 correlation|/home/danglab/workspace/Test/src/correlation.py
 load_data_DNN_norm|/home/danglab/workspace/Test/src/load_data_DNN_norm.py
+speech_recog|/home/danglab/workspace/Test/src/speech_recog.py
 weight_matrix|/home/danglab/workspace/Test/src/weight_matrix.py

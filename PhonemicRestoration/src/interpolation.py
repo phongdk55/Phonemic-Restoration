@@ -5,9 +5,9 @@ from math import *
 # = space audio (mfcc, del,del-del) + articulatory data interpolation
 
 from load_data_DNN import read_file_test
-artic_dir = '/home/danglab/Results/PhonemicRestoration/5_layers/space/SP_no_EMA/test_0/0_10ms_1_-3dB/'
-artic_inter_dir = '/home/danglab/Results/artic_inter/10ms/' # articulatory_data
-space_audio_dir = '/home/danglab/Phong/features/Space/0_10ms_1_-3dB/'
+artic_dir = '/home/danglab/Results/PhonemicRestoration/5_layers/space/SP_no_EMA/test_0/0_20ms_1_-3dB/'
+artic_inter_dir = '/home/danglab/Results/artic_inter/20ms/' # articulatory_data
+space_audio_dir = '/home/danglab/Phong/features/Space/0_20ms_1_-3dB/'
 
 num_features = 49
 
@@ -26,7 +26,7 @@ def interpolate_20(position):
     m =  position.shape[0]
     position[0] = position[2]   # gap at 0-1, 4-5, 8-9...
     position[1] = position[3]
-    
+    print "20mmmmmmssssssssssssssss"
     for i in xrange(4,m,3):
         try:
             position[i] = (position[i - 1] + position[i + 1]) / 2           #interpolate by averaging

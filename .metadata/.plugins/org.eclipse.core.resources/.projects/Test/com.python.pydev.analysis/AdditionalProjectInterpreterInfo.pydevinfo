@@ -2,6 +2,7 @@
 -- START DISKCACHE_2
 /home/danglab/workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/Test/com.python.pydev.analysis/v2_indexcache
 Test|1453472674000000000|/home/danglab/workspace/Test/src/Test.py
+speech_recog|1455031712000000000|/home/danglab/workspace/Test/src/speech_recog.py
 load_data_DNN_norm|1452179905000000000|/home/danglab/workspace/Test/src/load_data_DNN_norm.py
 classification|1450337375000000000|/home/danglab/workspace/Test/src/classification.py
 weight_matrix|1453471571000000000|/home/danglab/workspace/Test/src/weight_matrix.py
@@ -10,43 +11,49 @@ Phonemic_DNN_SGD|1453476519000000000|/home/danglab/workspace/Test/src/Phonemic_D
 PCA|1453473509000000000|/home/danglab/workspace/Test/src/PCA.py
 -- END DISKCACHE
 -- START DICTIONARY
-6
+7
 2=Test
-4=load_data_DNN_norm
+5=load_data_DNN_norm
+4=speech_recog
 1=classification
-6=weight_matrix
+7=weight_matrix
 3=correlation
-5=Phonemic_DNN_SGD
+6=Phonemic_DNN_SGD
 -- END DICTIONARY
 -- START TREE 1
-27
+32
 X|2|X!11@X!19@
 Y|2|Y!19@Y!11@
 a|1|a!27@
+att|2|ATT_APP_SECRET!35@ATT_APP_KEY!35@
+aud|1|audio!35@
 b|1|b!27@
 cla|1|classify!10@
-cou|1|count!35@
-dee|1|deep_neural_network!42@
-fac|1|factor_arr!35@
-fea|2|features_arr!35@feature!35@
-flo|3|floatX!10@floatX!18@floatX!50@
+cou|1|count!43@
+dee|1|deep_neural_network!50@
+fac|1|factor_arr!43@
+fea|2|features_arr!43@feature!43@
+flo|3|floatX!10@floatX!18@floatX!58@
+ibm|2|IBM_PASSWORD!35@IBM_USERNAME!35@
 ini|2|init_weights!18@init_weights!10@
-inp|3|input_dir!35@input_arr!35@input_file!35@
+inp|3|input_dir!43@input_arr!43@input_file!43@
 lin|2|linear_2!18@linear!18@
-loa|3|load_weight_info!50@load_initial_info!50@load_data!34@
-mod|3|model!10@model!18@model!42@
-out|2|output_arr!35@output_dir!35@
+loa|3|load_weight_info!58@load_initial_info!58@load_data!42@
+mod|3|model!10@model!18@model!50@
+out|2|output_arr!43@output_dir!43@
 qua|2|quadratic!18@quadratic_model!18@
-r|1|r!27@
-rea|4|read_features!34@read_afile!34@read_file_test!42@read_data!34@
-sav|1|save_weight_info!50@
-seq|1|sequential_number!35@
-sgd|1|sgd!42@
-sha|1|share_weights!50@
-sta|1|start!35@
+r|2|r!35@r!27@
+rea|4|read_features!42@read_afile!42@read_file_test!50@read_data!42@
+sav|1|save_weight_info!58@
+seq|1|sequential_number!43@
+sgd|1|sgd!50@
+sha|1|share_weights!58@
+sta|1|start!43@
 trx|2|trX!11@trX!19@
 try|2|trY!19@trY!11@
-wri|1|write_predict_2_file!42@
+wav|1|WAV_FILE!35@
+wit|1|WIT_AI_KEY!35@
+wri|1|write_predict_2_file!50@
 -- END TREE
 -- START TREE 2
 0

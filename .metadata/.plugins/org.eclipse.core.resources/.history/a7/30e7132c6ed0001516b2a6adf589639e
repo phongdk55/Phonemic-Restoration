@@ -1,0 +1,58 @@
+import numpy as np
+import os
+from load_data import read_file_test, read_afile
+from math import *
+
+def normalise_mfcc(X):
+    max_X = abs(X).max()
+    #print max_X                               
+    Y = X / max_X
+    return Y[:,1:13] 
+
+def evaluate(original_file, test_file):    
+    #print original_file
+    #print test_file
+    ori_arr, factors = read_file_test(original_file, 13, "factors")
+    test_arr = read_file_test(test_file, 13)
+    
+    ori_arr = ori_arr[:,1:13] * factors #normalise_mfcc(ori_arr)               # take 12 coefficients
+    #print ori_arr
+    test_arr = test_arr[:,1:13]
+    #print test_arr
+    
+    subtract = (ori_arr - test_arr) ** 2
+    rms = sqrt(subtract.sum()) #/(ori_arr.shape[0] * ori_arr.shape[1])
+    
+    [m,n] = ori_arr.shape
+    a = ori_arr.reshape(1,m*n)
+    b = test_arr.reshape(1,m*n)
+    return np.corrcoef(a,b)[0,1]
+    
+    return rms
+
+def test_1():   
+    full_audio_ema = ''
+    full_audio = ''
+    total_rms = 0
+    cnt = 0
+    #find = folder.split('_')
+    for filename in sorted(os.listdir(full_audio_ema)):     #cac filename trong tung test    
+        #break
+        file_before_dnn =  full_audio_ema  + filename       # file trc khi cho vao DNN
+        a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), file_before_dnn)     
+        total_rms += a_rms
+        cnt +=1
+    print 'No EMA: ', total_rms / cnt, cnt     
+    
+    
+    total_rms = 0
+    cnt = 0
+    for filename in sorted(os.listdir(after_dnn_dir)):     #cac filename trong tung test
+        #print filename
+        file_after_dnn = after_dnn_dir + '/' +filename             # file sau khi cho vao DNN
+        a_rms = evaluate(origin_dir + filename.replace('.txt','_in.txt'), file_after_dnn )
+        total_rms += a_rms
+        cnt +=1
+    print 'Full EMA: ', total_rms / cnt, cnt
+
+test_1()

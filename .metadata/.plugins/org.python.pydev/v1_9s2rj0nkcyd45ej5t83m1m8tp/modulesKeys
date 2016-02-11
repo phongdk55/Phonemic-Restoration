@@ -1228,6 +1228,9 @@ pipes|/usr/local/lib/python2.7/pipes.py
 pkgutil|/usr/local/lib/python2.7/pkgutil.py
 platform|/usr/local/lib/python2.7/platform.py
 plistlib|/usr/local/lib/python2.7/plistlib.py
+pocketsphinx.__init__|/usr/local/lib/python2.7/dist-packages/pocketsphinx/__init__.py
+pocketsphinx._pocketsphinx|/usr/local/lib/python2.7/dist-packages/pocketsphinx/_pocketsphinx.so
+pocketsphinx.pocketsphinx|/usr/local/lib/python2.7/dist-packages/pocketsphinx/pocketsphinx.py
 popen2|/usr/local/lib/python2.7/popen2.py
 poplib|/usr/local/lib/python2.7/poplib.py
 posix
@@ -1616,6 +1619,11 @@ smtpd|/usr/local/lib/python2.7/smtpd.py
 smtplib|/usr/local/lib/python2.7/smtplib.py
 sndhdr|/usr/local/lib/python2.7/sndhdr.py
 socket|/usr/local/lib/python2.7/socket.py
+speech_recognition.__init__|/usr/local/lib/python2.7/dist-packages/speech_recognition/__init__.py
+speech_recognition.__main__|/usr/local/lib/python2.7/dist-packages/speech_recognition/__main__.py
+sphinxbase.__init__|/usr/local/lib/python2.7/dist-packages/sphinxbase/__init__.py
+sphinxbase._sphinxbase|/usr/local/lib/python2.7/dist-packages/sphinxbase/_sphinxbase.so
+sphinxbase.sphinxbase|/usr/local/lib/python2.7/dist-packages/sphinxbase/sphinxbase.py
 spwd|/usr/local/lib/python2.7/lib-dynload/spwd.so
 sqlite3.__init__|/usr/local/lib/python2.7/sqlite3/__init__.py
 sqlite3.dbapi2|/usr/local/lib/python2.7/sqlite3/dbapi2.py
@@ -2527,6 +2535,7 @@ wave|/usr/local/lib/python2.7/wave.py
 weakref|/usr/local/lib/python2.7/weakref.py
 webbrowser|/usr/local/lib/python2.7/webbrowser.py
 whichdb|/usr/local/lib/python2.7/whichdb.py
+wit|/usr/local/lib/python2.7/dist-packages/wit.so
 wsgiref.__init__|/usr/local/lib/python2.7/wsgiref/__init__.py
 wsgiref.handlers|/usr/local/lib/python2.7/wsgiref/handlers.py
 wsgiref.headers|/usr/local/lib/python2.7/wsgiref/headers.py

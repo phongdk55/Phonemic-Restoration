@@ -1,0 +1,14 @@
+INSTUPEvaluation_test_phase
+/home/danglab/workspace/New_PR/src/Evaluation_test_phase.py
+INFOS:&&3|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&3|6|2|0&&3|7|2|0&&2|8|2|0&&3|9|2|0&&3|10|2|0&&2|11|2|0
+test_1=5
+space_audio=9
+test_2=8
+evaluate=4
+origin_dir=1
+full_audio_ema=6
+space_audio_ema=10
+Evaluation_test_phase=2
+normalise_mfcc=3
+estimate=11
+full_audio=7

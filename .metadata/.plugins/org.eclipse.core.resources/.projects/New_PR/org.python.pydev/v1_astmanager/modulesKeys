@@ -1,5 +1,6 @@
 MODULES_MANAGER_V2
 Bias|/home/danglab/workspace/New_PR/src/Bias.py
+Evaluation_test_phase|/home/danglab/workspace/New_PR/src/Evaluation_test_phase.py
 Utility|/home/danglab/workspace/New_PR/src/Utility.py
 load_data|/home/danglab/workspace/New_PR/src/load_data.py
 main|/home/danglab/workspace/New_PR/src/main.py

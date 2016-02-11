@@ -55,7 +55,7 @@ def read_features(test_number, n_input, n_output):
         read_afile( input_file,n_input , input_arr)
         read_afile(output_file, n_output, output_arr)  
         
-        #break    
+        break    
     print 'length of training data ', len(input_arr)
     return np.array(input_arr).astype(np.float32), np.array(output_arr).astype(np.float32), missing_filename
 
