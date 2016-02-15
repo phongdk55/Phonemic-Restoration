@@ -16,7 +16,7 @@ class Deep_Neural_Network():
         self.test_number = 0
         self._load_parameters()
         self._training_DNN()
-        self._run_testing_DNN()
+        #self._run_testing_DNN()
         
     def _sgd(self,cost, params, bias, lr=0.05):             # generalize to compute gradient descent
         updates = []
@@ -40,10 +40,10 @@ class Deep_Neural_Network():
         return pyx           
    
     def _load_parameters(self):   
-        load_params = True
+        load_params = False
         
         self.id_file = 0
-        self.weight_folder = '../weight/' + 'test_' + str(self.test_number) + '/'
+        self.weight_folder = '../weight_no_mid_145/' + 'test_' + str(self.test_number) + '/'
         
         if not os.path.exists(self.weight_folder):
             os.makedirs(self.weight_folder)
@@ -55,36 +55,37 @@ class Deep_Neural_Network():
         else:
             self.nloop = 0
             self.n_hidden_layer = 5
-            self.n_input_f = 144 * 3 + 1
+            self.n_input_f = 144 * 3 + 1 - 36       # bo 36 acoustic feature cua frame o giua de noi suy
             self.n_hidden_f = 1024
-            self.n_output_f = 49 #145 #49
+            self.n_output_f = 145 #49
             self.params, self.bias = load_initial_info(self.n_hidden_layer, self.n_input_f, self.n_hidden_f, self.n_output_f)
     
     def _stack_segment(self, trX, trY):     # use 3 continuous segments to get result which is the middle segment
         [m,n] = trX.shape
-        stack_X = np.zeros((m,3*n))
-        stack_Y = np.zeros((m,trY.shape[1]))
-        #stack_Y = np.zeros((m-2,n))
+        stack_X = np.zeros((m - 2 ,3*n - 36))
+        #stack_Y = np.zeros((m - 2  ,trY.shape[1] ))        #49 features
+        stack_Y = np.zeros((m-2,n))             #145 features
         for u in xrange(m-2):
-            stack_X[u] = np.concatenate((trX[u],trX[u+1], trX[u+2]))
-            '''
-            print '----------'
-            print trX[u]
-            print '----------'
-            print trX[u+1]
-            print '----------'
-            print trX[u+2]
-            '''
-            stack_Y[u+1] = trY[u+1]           # use 3 continuous segment to get result which is the middle segment
-            #stack_Y[u] = trX[u+1]           #145 feature
-            #print '----------'
-            #print trY[u+1]
-        stack_X[0] = np.concatenate((trX[0],trX[0],trX[1]))
-        stack_Y[0] = trY[0]
-        stack_X[m-1] = np.concatenate((trX[m-2],trX[m-1],trX[m-1]))
-        stack_Y[m-1] = trY[m-1]
+            feature_mid = trX[u+1][36:n]        # ko dung du lieu acoustic cua frame giua
+            stack_X[u] = np.concatenate((trX[u],feature_mid, trX[u+2]))
+            #stack_Y[u] = trY[u+1]           # use 3 continuous segment to get result which is the middle segment
+            stack_Y[u] = trX[u+1]           #145 feature lay tu X
+        #stack_X[0] = np.concatenate((trX[0],trX[0],trX[1]))
+        #stack_Y[0] = trY[0]
+        #stack_X[m-1] = np.concatenate((trX[m-2],trX[m-1],trX[m-1]))
+        #stack_Y[m-1] = trY[m-1]
         return stack_X, stack_Y
-
+    def _stack_segment_test(self, trX):     # use 3 continuous segments to get result which is the middle segment
+        [m,n] = trX.shape
+        stack_X = np.zeros((m ,3*n - 36))
+        for u in xrange(m-2):
+            feature_mid = trX[u+1][36:n]        # ko dung du lieu acoustic cua frame giua
+            stack_X[u+1] = np.concatenate((trX[u],feature_mid, trX[u+2]))
+            
+        stack_X[0] = np.concatenate((trX[0],trX[0][36:n],trX[1]))               #border processing
+        stack_X[m-1] = np.concatenate((trX[m-2],trX[m-1][36:n],trX[m-1]))
+        return stack_X
+    
     def _training_DNN(self):   
         trX, trY, self.missing_filename_list,  = read_features(self.test_number, self.feature_dim_in, self.feature_dim_out) #self.n_output_f)     
         trX = trX[:,1:self.feature_dim_in]
@@ -127,11 +128,11 @@ class Deep_Neural_Network():
         #self._testing_noise_space(test_dir, 'space/')
         #test_dir = '/home/danglab/Phong/features/Noise/'
         #self._testing_noise_space(test_dir, 'noises/')
-        test_dir = '/home/danglab/Phong/features/origin/input/'
-        self._testing_original_file(test_dir, 'origin/')
+        #test_dir = '/home/danglab/Phong/features/origin/input/'
+        #self._testing_original_file(test_dir, 'origin/')
         
-        #test_dir = '/home/danglab/Phong/features/Space/0_20ms_1_-6dB/'
-        #self._testing_space(test_dir, 'space/20ms/')
+        test_dir = '/home/danglab/Phong/features/Space/0_20ms_1_-6dB/'
+        self._testing_space(test_dir, 'space/20ms/')
         #test_dir = '/home/danglab/Results/artic_inter/10ms/'
         #self._testing_aritc_interpolation(test_dir)
         
@@ -160,7 +161,7 @@ class Deep_Neural_Network():
                     self._write_predict_2_file(dnn_predict_dir + afile.replace(afile[find_[4]:len(afile)-4],''), energy, self.predict(test_arr), factors)      # write result to file
     
     def _testing_space(self, test_dir, type_data):
-        dnn_predict_dir = '/home/danglab/Results/New_PR/' + type_data + 'no_EMA/'+'test_' + str(self.test_number) + '/' 
+        dnn_predict_dir = '/home/danglab/Results/New_PR/' + type_data + 'full_EMA/'+'test_' + str(self.test_number) + '/' 
         
         if not os.path.exists(dnn_predict_dir):
             os.makedirs(dnn_predict_dir)
@@ -174,7 +175,7 @@ class Deep_Neural_Network():
                 print "no_ema"
                 test_arr[:,12:self.feature_dim_in] = 0  # remove articulatory data
             
-            test_arr, b = self._stack_segment(test_arr, test_arr)
+            test_arr = self._stack_segment_test(test_arr)
             #position 0,2,4,6,... is missing audio, only test these parts
             test_missing_part = test_arr[0:test_arr.shape[0]:2]     # lay nhung frame bi mat du lieu
             no_missing_part = test_arr[1:test_arr.shape[0]:2]
@@ -202,7 +203,7 @@ class Deep_Neural_Network():
         files.close()
         
     def _testing_original_file(self, test_dir, type_data):     
-        dnn_predict_dir = '/home/danglab/Results/New_PR/' + type_data + 'no_EMA/'+'test_' + str(self.test_number) + '/' 
+        dnn_predict_dir = '/home/danglab/Results/New_PR/' + type_data + 'full_EMA/'+'test_' + str(self.test_number) + '/' 
         
         if not os.path.exists(dnn_predict_dir):
             os.makedirs(dnn_predict_dir)
@@ -216,7 +217,7 @@ class Deep_Neural_Network():
                 print "no_ema"
                 test_arr[:,12:self.feature_dim_in] = 0  # remove articulatory data
             
-            test_arr, b = self._stack_segment(test_arr, test_arr)
+            test_arr  = self._stack_segment_test(test_arr)
             print test_arr.shape
             self._write_predict_2_file(dnn_predict_dir + afile + '.txt', energy, self.predict(test_arr), factors)      # write result to file
     

@@ -6,7 +6,7 @@ speech_recog|1455031712000000000|/home/danglab/workspace/Test/src/speech_recog.p
 load_data_DNN_norm|1452179905000000000|/home/danglab/workspace/Test/src/load_data_DNN_norm.py
 classification|1450337375000000000|/home/danglab/workspace/Test/src/classification.py
 weight_matrix|1453471571000000000|/home/danglab/workspace/Test/src/weight_matrix.py
-correlation|1453451492000000000|/home/danglab/workspace/Test/src/correlation.py
+correlation|1455166221000000000|/home/danglab/workspace/Test/src/correlation.py
 Phonemic_DNN_SGD|1453476519000000000|/home/danglab/workspace/Test/src/Phonemic_DNN_SGD.py
 PCA|1453473509000000000|/home/danglab/workspace/Test/src/PCA.py
 -- END DISKCACHE
@@ -21,13 +21,14 @@ PCA|1453473509000000000|/home/danglab/workspace/Test/src/PCA.py
 6=Phonemic_DNN_SGD
 -- END DICTIONARY
 -- START TREE 1
-32
+33
 X|2|X!11@X!19@
 Y|2|Y!19@Y!11@
 a|1|a!27@
 att|2|ATT_APP_SECRET!35@ATT_APP_KEY!35@
 aud|1|audio!35@
 b|1|b!27@
+c|1|c!27@
 cla|1|classify!10@
 cou|1|count!43@
 dee|1|deep_neural_network!50@
